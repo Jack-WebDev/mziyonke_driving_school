@@ -80,7 +80,7 @@ export default function NavBar() {
           <Button className="mt-6 rounded-full bg-primary px-12 py-6 text-white">
             Book Online
           </Button>
-          <Button className="mt-6 rounded-full bg-primary px-12 py-6 text-white">
+          <Button className="mt-6 rounded-full border border-primary bg-white px-12 py-6 text-primary">
             <CircleUserRound />
             Login
           </Button>
@@ -134,7 +134,7 @@ export default function NavBar() {
         <Button className="hidden rounded-full bg-primary px-12 py-6 text-white lg:flex">
           Book Online
         </Button>
-        <Button className="hidden mt-6 rounded-full bg-primary px-12 py-6 text-white lg:flex">
+        <Button className="hidden mt-6 lg:mt-0 rounded-full border bg-white border-primary text-primary px-12 py-6 lg:flex hover:text-white">
           <CircleUserRound />
           Login
         </Button>
