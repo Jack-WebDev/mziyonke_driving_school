@@ -1,4 +1,5 @@
 import Courses from "~/components/Courses";
+import FAQ from "~/components/FAQ";
 import Hero from "~/components/Hero";
 import Instructors from "~/components/Instructors";
 import NavBar from "~/components/NavBar";
@@ -13,6 +14,7 @@ export default function Home() {
       <Courses/>
       <Testimonials/>
       <Instructors/>
+      <FAQ/>
     </div>
   )
 }
