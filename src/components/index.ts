@@ -1,2 +1,5 @@
 export * from './NavBar'
 export * from './Hero'
+export * from './Testimonials'
+export * from './Instructors'
+export * from './Courses'
