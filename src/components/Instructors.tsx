@@ -17,25 +17,24 @@ export default function Instructors() {
             </h3>
           </div>
   
-          {/* Cards grid */}
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <InstructorCard 
               imgSrc={instructor} 
               name="Lebohang Maisa" 
-              title="Frontend Developer" 
-              socials="Twitter, LinkedIn, Github" 
+              title="Facilitator" 
+              socials="Twitter, LinkedIn, Facebook" 
             />
             <InstructorCard 
               imgSrc={instructor} 
               name="Botho Maake" 
-              title="Frontend Developer" 
-              socials="Twitter, LinkedIn, Github" 
+              title="Instructor" 
+              socials="Twitter, LinkedIn" 
             />
             <InstructorCard 
               imgSrc={instructor} 
               name="Elijah Ysaseng" 
-              title="Frontend Developer" 
-              socials="Twitter, LinkedIn, Github" 
+              title="Instructor" 
+              socials="Twitter, LinkedIn, Facebook" 
             />
           </div>
         </div>
