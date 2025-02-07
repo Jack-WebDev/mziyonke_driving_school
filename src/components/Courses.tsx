@@ -6,6 +6,7 @@ import code8Car from '~/assets/code8-car.jpg';
 import code10Car from '~/assets/code10-car.jpg';
 import code14Car from '~/assets/code14-car.jpg';
 import { Button } from "./ui/button";
+import { useRouter } from "next/navigation";
 
 
 const containerVariants = {
@@ -20,6 +21,13 @@ const containerVariants = {
 
 
 export default function Courses() {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push("/courses");
+  };
+
+
   return (
     <div className="grid mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <motion.div
@@ -68,7 +76,7 @@ export default function Courses() {
         />
       </motion.div>
 
-      <Button className="rounded-full py-6 px-12 w-fit justify-self-center mt-20 border border-primary bg-white text-primary hover:text-white">View All Courses</Button>
+      <Button onClick={handleClick} className="rounded-full py-6 px-12 w-fit justify-self-center mt-20 border border-primary bg-white text-primary hover:text-white">View All Courses</Button>
     </div>
   );
 }

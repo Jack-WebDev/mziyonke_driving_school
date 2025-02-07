@@ -1,9 +1,16 @@
-import React from "react";
+"use client";
 import TestimonialCard from "~/modules/testimonials/components/TestimonialCard";
 import martin from "~/assets/martin.jpg";
 import { Button } from "./ui/button";
+// import { useRouter } from "next/navigation";
 
 export default function Testimonials() {
+  // const router = useRouter();
+
+  // const handleClick = () => {
+  //   router.push("/testimonials");
+  // };
+
   return (
     <section className="relative overflow-hidden bg-gray-50 py-24">
       <div className="absolute inset-0 -z-10">
@@ -51,6 +58,7 @@ export default function Testimonials() {
         <div className="mt-16 flex justify-center">
           <Button 
             className="group relative overflow-hidden rounded-full bg-white px-8 py-4 text-lg font-semibold text-blue-600 shadow-md transition-all hover:shadow-lg hover:text-white"
+            // onClick={handleClick}
           >
             <span className="relative z-10">View All Testimonials</span>
           </Button>
