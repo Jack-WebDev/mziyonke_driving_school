@@ -1,10 +1,48 @@
 "use client";
 import { motion } from "framer-motion";
 
-import { BicepsFlexed, Handshake, Users } from "lucide-react";
+import {
+  BicepsFlexed,
+  Building2,
+  Handshake,
+  Mail,
+  MapPinCheck,
+  Phone,
+  Users,
+} from "lucide-react";
 import Image from "next/image";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "./ui/dialog";
+import { useRouter } from "next/navigation";
 
 export default function Hero() {
+  const router = useRouter();
+  const officeLocations = [
+    {
+      city: "New York",
+      address: "123 Tech Lane, Manhattan",
+      phone: "(212) 555-1234",
+      email: "ny-office@company.com",
+    },
+    {
+      city: "San Francisco",
+      address: "456 Innovation Drive, SoMa",
+      phone: "(415) 555-5678",
+      email: "sf-office@company.com",
+    },
+  ];
+
+
+  const handleClick = () => {
+    router.push("/courses");
+  };
+
   return (
     <section className="h-screen">
       <div className="container mx-auto flex h-2/3 flex-col items-center justify-between space-y-8 px-6 lg:flex-row lg:space-y-0 lg:px-12">
@@ -19,9 +57,61 @@ export default function Hero() {
           <p className="text-lg font-light">
             Experience the best driving instruction tailored to your needs.
           </p>
-          <button className="mt-6 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition hover:bg-primary-foreground">
-            View Courses
-          </button>
+          <div className="flex gap-x-4 justify-center md:justify-start">
+            <button onClick={handleClick} className="mt-6 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition hover:bg-primary-foreground">
+              View Courses
+            </button>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex  gap-x-2 mt-6 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition hover:bg-primary-foreground">
+                  <MapPinCheck className="h-6 w-6" /> Find Us
+                </button>
+              </DialogTrigger>
+              <DialogContent className="w-[90%] rounded-xl">
+                <DialogHeader>
+                  <DialogTitle className="text-2xl font-bold text-gray-800">
+                    Find Our Offices
+                  </DialogTitle>
+                  <DialogDescription className="text-gray-600">
+                    Discover our convenient locations across major tech hubs.
+                  </DialogDescription>
+                </DialogHeader>
+
+                <div className="space-y-4">
+                  {officeLocations.map((office, index) => (
+                    <motion.div
+                      key={office.city}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.2 }}
+                      className="rounded-lg border border-gray-200 bg-gray-50 p-4 transition-all hover:shadow-md"
+                    >
+                      <div className="mb-2 flex items-center">
+                        <Building2 className="mr-2 text-indigo-600" />
+                        <h3 className="text-xl font-semibold text-gray-800">
+                          {office.city}
+                        </h3>
+                      </div>
+                      <div className="space-y-2">
+                        <div className="flex items-center text-gray-700">
+                          <MapPinCheck className="mr-2 h-5 w-5 text-green-600" />
+                          {office.address}
+                        </div>
+                        <div className="flex items-center text-gray-700">
+                          <Phone className="mr-2 h-5 w-5 text-blue-600" />
+                          {office.phone}
+                        </div>
+                        <div className="flex items-center text-gray-700">
+                          <Mail className="mr-2 h-5 w-5 text-red-600" />
+                          {office.email}
+                        </div>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
         </div>
 
         <div className="relative hidden h-full w-full items-center justify-center lg:flex">
