@@ -27,19 +27,19 @@ export default function Instructors() {
               imgSrc={instructor} 
               name="Lebohang Maisa" 
               title="Facilitator" 
-              socials="Twitter, LinkedIn, Facebook" 
+              phone='+27 71 234 5678'
             />
             <InstructorCard 
               imgSrc={instructor} 
               name="Botho Maake" 
               title="Instructor" 
-              socials="Twitter, LinkedIn" 
+              phone='+27 72 345 6789'
             />
             <InstructorCard 
               imgSrc={instructor} 
               name="Elijah Ysaseng" 
               title="Instructor" 
-              socials="Twitter, LinkedIn, Facebook" 
+              phone='+27 73 456 7890'
             />
           </div>
         </div>

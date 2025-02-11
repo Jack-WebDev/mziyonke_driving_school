@@ -16,7 +16,6 @@ export default function NavBar() {
     { name: "Courses", href: "/courses" },
     { name: "Our Team", href: "/staff" },
     { name: "Gallery", href: "/gallery" },
-    // { name: "News and Specials", href: "/news" },
   ];
 
   const handleClick = () => {

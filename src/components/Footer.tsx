@@ -10,6 +10,14 @@ import {
 import Link from "next/link";
 
 export default function Footer() {
+  const navLinks = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Courses", href: "/courses" },
+    { name: "Our Team", href: "/staff" },
+    { name: "Gallery", href: "/gallery" },
+  ];
+
   return (
     <footer className="bg-gray-900 py-12 text-white">
       <div className="container mx-auto px-4">
@@ -35,16 +43,17 @@ export default function Footer() {
 
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
-            <ul className="grid grid-cols-2 space-y-2 text-gray-400">
-              {["Home", "About", "Courses", "Instructors", "Contact"].map(
-                (link) => (
-                  <li key={link}>
-                    <a href="#" className="transition-colors hover:text-white">
-                      {link}
-                    </a>
-                  </li>
-                ),
-              )}
+            <ul className="grid grid-cols-2 gap-4 text-md">
+              {navLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="transition-colors hover:text-blue-300"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -69,7 +78,13 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
           © {new Date().getFullYear()} Mziyonke Driving School | Created by
-          <Link href="https://next-portfolio-tau-green.vercel.app/" target="_blank" className="text-gray-100 ml-2">Jack WebDev</Link>
+          <Link
+            href="https://next-portfolio-tau-green.vercel.app/"
+            target="_blank"
+            className="ml-2 text-gray-100"
+          >
+            Jack WebDev
+          </Link>
         </div>
       </div>
     </footer>
