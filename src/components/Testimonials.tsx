@@ -1,16 +1,9 @@
-"use client";
 import TestimonialCard from "~/modules/testimonials/components/TestimonialCard";
-import martin from "~/assets/martin.jpg";
-import { Button } from "./ui/button";
-// import { useRouter } from "next/navigation";
+import img1 from "~/assets/gallery-image-6.jpg";
+import img2 from "~/assets/gallery-image-7.jpg";
+import img3 from "~/assets/gallery-image-8.jpg";
 
 export default function Testimonials() {
-  // const router = useRouter();
-
-  // const handleClick = () => {
-  //   router.push("/testimonials");
-  // };
-
   return (
     <section className="relative overflow-hidden bg-gray-50 py-24">
       <div className="absolute inset-0 -z-10">
@@ -20,7 +13,7 @@ export default function Testimonials() {
 
       <div className="container mx-auto px-6">
         <div className="mb-16 text-center">
-          <h2 className="mb-4 text-primary text-4xl font-extrabold sm:text-5xl">
+          <h2 className="mb-4 text-4xl font-extrabold text-primary sm:text-5xl">
             Testimonials
           </h2>
           <p className="mx-auto max-w-2xl text-lg text-gray-600">
@@ -29,39 +22,30 @@ export default function Testimonials() {
         </div>
 
         <div className="grid gap-8 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-          <div className="transform transition-all hover:translate-y-[-10px] duration-300">
+          <div className="transform transition-all duration-300 hover:translate-y-[-10px]">
             <TestimonialCard
-              imgSrc={martin}
-              description="Testing"
-              userName="Martin"
+              imgSrc={img1}
+              description="I had an amazing experience! My instructor was incredibly patient and made me feel comfortable behind the wheel from day one. I passed my driving test on the first try! Highly recommend to anyone looking to become a confident driver."
+              userName="Maditaba Phoolo"
               title="Code 10"
             />
           </div>
-          <div className="transform transition-all hover:translate-y-[-10px] duration-300">
+          <div className="transform transition-all duration-300 hover:translate-y-[-10px]">
             <TestimonialCard
-              imgSrc={martin}
-              description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae aliquam aut dolore eligendi reiciendis porro, quas impedit molestiae magni dolores eveniet enim commodi, dignissimos dolorem animi aspernatur. Harum ipsa, quis voluptas dolore enim nemo quasi iusto praesentium cupiditate illo dicta!"
+              imgSrc={img2}
+              description="I was nervous about learning to drive, but the instructors at Mziyonke were fantastic. They explained everything clearly and gave me the confidence I needed. Couldn't have asked for a better experience!"
               userName="Sizani Makhuba"
               title="Code 8"
             />
           </div>
-          <div className="transform transition-all hover:translate-y-[-10px] duration-300">
+          <div className="transform transition-all duration-300 hover:translate-y-[-10px]">
             <TestimonialCard
-              imgSrc={martin}
-              description="Lorem ipsum dolom animi aspernatur. Harum ipsa, quis voluptas dolore enim nemo quasi iusto praesentium cupiditate illo dicta!"
-              userName="Wazini Macala"
+              imgSrc={img3}
+              description="From my first lesson to my driving test, the team at Mziyonke was exceptional. They provided great tips, corrected my mistakes without making me feel stressed, and helped me build confidence on the road. I’m now a licensed driver, all thanks to them!"
+              userName="Lerato Maake"
               title="Code 8"
             />
           </div>
-        </div>
-
-        <div className="mt-16 flex justify-center">
-          <Button 
-            className="group relative overflow-hidden rounded-full bg-white px-8 py-4 text-lg font-semibold text-blue-600 shadow-md transition-all hover:shadow-lg hover:text-white"
-            // onClick={handleClick}
-          >
-            <span className="relative z-10">View All Testimonials</span>
-          </Button>
         </div>
       </div>
     </section>

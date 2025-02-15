@@ -43,7 +43,7 @@ export default function Footer() {
 
           <div>
             <h3 className="mb-4 text-lg font-semibold">Quick Links</h3>
-            <ul className="grid grid-cols-2 gap-4 text-md">
+            <ul className="text-md grid grid-cols-2 gap-4">
               {navLinks.map((link) => (
                 <li key={link.name}>
                   <Link
@@ -65,7 +65,7 @@ export default function Footer() {
                 <span>123 Driving Street, City, Country</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="h-5 w-5 text-blue-500" />
+                <Phone className="h-5 w-5 text-primary" />
                 <span>+27 123 456 7890</span>
               </div>
               <div className="flex items-center space-x-2">

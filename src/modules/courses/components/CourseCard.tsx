@@ -55,13 +55,6 @@ export default function CourseCard({
       <div className="p-6">
         <h3 className="mb-3 text-xl font-semibold text-gray-800">{title}</h3>
         <p className="text-sm leading-relaxed text-gray-600">{description}</p>
-        <motion.button
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="mt-4 rounded-lg bg-primary px-4 py-2 text-white transition-colors duration-300 hover:bg-primary-foreground"
-        >
-          Learn More
-        </motion.button>
       </div>
     </motion.div>
   );

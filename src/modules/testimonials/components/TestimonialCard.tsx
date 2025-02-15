@@ -18,7 +18,7 @@ export default function TestimonialCard({
     <div className="mx-auto w-full max-w-md transform transition-all duration-300 hover:scale-105">
       <div className="relative rounded-2xl bg-white p-8 shadow-xl">
         {/* Decorative quote icon */}
-        <div className="absolute -left-4 -top-4 rounded-full bg-blue-500 p-3">
+        <div className="absolute -left-4 -top-4 rounded-full bg-primary p-3">
           <Quote className="h-6 w-6 text-white" />
         </div>
 
@@ -42,7 +42,7 @@ export default function TestimonialCard({
                   className="h-full w-full object-cover"
                 />
               </div>
-              <div className="absolute -bottom-1 -right-1 rounded-full bg-blue-500 p-1">
+              <div className="absolute -bottom-1 -right-1 rounded-full bg-primary p-1">
                 <svg
                   className="h-4 w-4 text-white"
                   fill="currentColor"
