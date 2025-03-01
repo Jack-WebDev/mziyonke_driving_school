@@ -89,10 +89,10 @@ export default function About() {
               nurturing—an ethos that touches every life we encounter.
             </p>
           </div>
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          <motion.div whileTap={{ scale: 0.95 }}>
             <Button
               onClick={() => router.push("/courses")}
-              className="rounded-full bg-white px-8 py-3 text-lg font-semibold text-blue-600 shadow-md transition-shadow duration-300 hover:shadow-xl"
+              className="rounded-full bg-white px-8 py-3 text-lg font-semibold text-blue-600 shadow-md transition-shadow duration-300 hover:shadow-xl hover:text-white"
             >
               View Courses
             </Button>
