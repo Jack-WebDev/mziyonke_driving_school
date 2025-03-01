@@ -116,7 +116,7 @@ export default function Hero() {
 
         <div className="relative hidden h-full w-full items-center justify-center lg:flex">
           <div className="relative">
-            <Image src="/hero.jpg" alt="hero" width={500} height={200} />
+            <Image src="/hero.jpg" alt="hero" width={1000} height={500} />
 
             <motion.div
               className="absolute left-0 top-[50px] flex items-center justify-start rounded-xl border border-blue-100/50 bg-white/95 p-4 text-blue-800 shadow-lg backdrop-blur-sm"
