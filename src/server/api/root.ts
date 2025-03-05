@@ -1,11 +1,11 @@
 import {
   createCallerFactory,
-  createTRPCRouter,
-  publicProcedure,
+  createTRPCRouter
 } from "~/server/api/trpc";
+import { notificationRouter } from "./router";
 
 export const appRouter = createTRPCRouter({
-  hello: publicProcedure.query(() => "Hello Jack WebDev"),
+  notification: notificationRouter,
 });
 
 export type AppRouter = typeof appRouter;
