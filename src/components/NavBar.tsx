@@ -30,13 +30,15 @@ export default function NavBar() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <Image
-        src="/mziyonke_logo.avif"
-        alt="mziyonke logo"
-        width={100}
-        height={100}
-        className="rounded-full"
-      />
+      <Link href={"/"}>
+        <Image
+          src="/mziyonke_logo.avif"
+          alt="mziyonke logo"
+          width={100}
+          height={100}
+          className="rounded-full"
+        />
+      </Link>
 
       <Sheet>
         <SheetTrigger asChild>

@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { Download, Star } from "lucide-react";
 import code8 from "~/assets/code8-car2.jpg";
-import code10 from "~/assets/code10-car-2.jpg";
-import code14 from "~/assets/code14-car2.jpg";
+import code10 from '~/assets/code10.jpeg';
+import code14 from '~/assets/code14-car3.jpeg';
 import Image, { type StaticImageData } from "next/image";
 import NavBar from "~/components/NavBar";
 import Footer from "~/components/Footer";
