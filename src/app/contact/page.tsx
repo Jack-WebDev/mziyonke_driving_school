@@ -17,6 +17,8 @@ import { motion } from "framer-motion";
 import NavBar from "~/components/NavBar";
 import Footer from "~/components/Footer";
 import FAQ from "~/components/FAQ";
+import { clientApi } from "~/trpc/react";
+import Swal from "sweetalert2";
 
 const formSchema = z.object({
   firstName: z.string().min(2),
@@ -38,9 +40,35 @@ export default function ContactUs() {
     },
   });
 
-  // 2. Define a submit handler.
+  const submitFormMutation = clientApi.notification.create.useMutation({
+    onSuccess: async () => {
+      await Swal.fire({
+        title: "Submission Successful",
+        text: "Thank you for reaching out to Mziyonke. Our team has received your message and will respond as soon as possible.",
+        icon: "success",
+        timer: 20000,
+      } as unknown as string);
+    },
+    onError: async (error) => {
+      await Swal.fire({
+        title: "Submit form error",
+        text: error.message,
+        icon: "error",
+        timer: 20000,
+      } as unknown as string);
+    },
+  });
+
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    submitFormMutation.mutate({
+      firstName: values.firstName,
+      lastName: values.lastName,
+      email: values.email,
+      phoneNumber: values.phoneNumber,
+      message: values.message,
+    });
+
+    form.reset();
   }
 
   const containerVariants = {
@@ -63,156 +91,158 @@ export default function ContactUs() {
   };
   return (
     <>
-    <NavBar/>
-    <motion.div
-      className="flex flex-col justify-around bg-gray-50 py-12 md:p-12 md:flex-row"
-      initial="hidden"
-      animate="visible"
-      exit={{ opacity: 0 }}
-      variants={containerVariants}
-    >
-      {/* Left Section: Intro */}
+      <NavBar />
       <motion.div
-        className="mb-8 flex flex-col items-start justify-center px-4 md:mb-0 md:w-1/2"
-        variants={itemVariants}
+        className="flex flex-col justify-around bg-gray-50 py-12 md:flex-row md:p-12"
+        initial="hidden"
+        animate="visible"
+        exit={{ opacity: 0 }}
+        variants={containerVariants}
       >
-        <h2 className="w-full text-center mb-4 text-3xl font-bold text-gray-800 md:w-fit">Contact Us</h2>
-        <p className="text-center leading-relaxed text-gray-600">
-          We&apos;d love to hear from you! Fill out the form below and
-          we&apos;ll get back to you as soon as possible.
-        </p>
-      </motion.div>
+        {/* Left Section: Intro */}
+        <motion.div
+          className="mb-8 flex flex-col items-start justify-center px-4 md:mb-0 md:w-1/2"
+          variants={itemVariants}
+        >
+          <h2 className="mb-4 w-full text-center text-3xl font-bold text-gray-800 md:w-fit">
+            Contact Us
+          </h2>
+          <p className="text-center leading-relaxed text-gray-600">
+            We&apos;d love to hear from you! Fill out the form below and
+            we&apos;ll get back to you as soon as possible.
+          </p>
+        </motion.div>
 
-      {/* Right Section: Form */}
-      <motion.div className="px-4 md:w-1/2" variants={itemVariants}>
-        <Form {...form}>
-          <motion.form
-            onSubmit={form.handleSubmit(onSubmit)}
-            className="space-y-6 rounded-lg bg-white p-8 shadow-lg"
-            initial="hidden"
-            animate="visible"
-            variants={containerVariants}
-          >
-            {/* Name Fields */}
-            <motion.div
-              className="flex flex-col gap-4 sm:flex-row"
-              variants={itemVariants}
+        {/* Right Section: Form */}
+        <motion.div className="px-4 md:w-1/2" variants={itemVariants}>
+          <Form {...form}>
+            <motion.form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="space-y-6 rounded-lg bg-white p-8 shadow-lg"
+              initial="hidden"
+              animate="visible"
+              variants={containerVariants}
             >
-              <FormField
-                control={form.control}
-                name="firstName"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel>First Name</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="John"
-                        {...field}
-                        className="rounded-full border p-6"
-                      />
-                    </FormControl>
-                    <FormMessage className="text-red-500" />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="lastName"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel>Last Name</FormLabel>
-                    <FormControl>
-                      <Input
-                        placeholder="Doe"
-                        {...field}
-                        className="rounded-full border p-6"
-                      />
-                    </FormControl>
-                    <FormMessage className="text-red-500" />
-                  </FormItem>
-                )}
-              />
-            </motion.div>
-
-            {/* Contact Fields */}
-            <motion.div
-              className="flex flex-col gap-4 sm:flex-row"
-              variants={itemVariants}
-            >
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel>Email</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="email"
-                        placeholder="john.doe@example.com"
-                        {...field}
-                        className="rounded-full border p-6"
-                      />
-                    </FormControl>
-                    <FormMessage className="text-red-500" />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="phoneNumber"
-                render={({ field }) => (
-                  <FormItem className="w-full">
-                    <FormLabel>Phone Number</FormLabel>
-                    <FormControl>
-                      <Input
-                        type="tel"
-                        placeholder="+1 (123) 456-7890"
-                        {...field}
-                        className="rounded-full border p-6"
-                      />
-                    </FormControl>
-                    <FormMessage className="text-red-500" />
-                  </FormItem>
-                )}
-              />
-            </motion.div>
-
-            {/* Message Field */}
-            <motion.div variants={itemVariants}>
-              <FormField
-                control={form.control}
-                name="message"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Message</FormLabel>
-                    <FormControl>
-                      <Textarea
-                        placeholder="Tell us a little bit about yourself"
-                        className="resize-none rounded-2xl border p-6"
-                        {...field}
-                      />
-                    </FormControl>
-                    <FormMessage className="text-red-500" />
-                  </FormItem>
-                )}
-              />
-            </motion.div>
-
-            {/* Submit Button */}
-            <motion.div variants={itemVariants}>
-              <Button
-                type="submit"
-                className="w-full rounded-full bg-primary py-6 text-white transition duration-200"
+              {/* Name Fields */}
+              <motion.div
+                className="flex flex-col gap-4 sm:flex-row"
+                variants={itemVariants}
               >
-                Submit
-              </Button>
-            </motion.div>
-          </motion.form>
-        </Form>
+                <FormField
+                  control={form.control}
+                  name="firstName"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>First Name</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="John"
+                          {...field}
+                          className="rounded-full border p-6"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500" />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="lastName"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>Last Name</FormLabel>
+                      <FormControl>
+                        <Input
+                          placeholder="Doe"
+                          {...field}
+                          className="rounded-full border p-6"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500" />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
+
+              {/* Contact Fields */}
+              <motion.div
+                className="flex flex-col gap-4 sm:flex-row"
+                variants={itemVariants}
+              >
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>Email</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="email"
+                          placeholder="john.doe@example.com"
+                          {...field}
+                          className="rounded-full border p-6"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500" />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="phoneNumber"
+                  render={({ field }) => (
+                    <FormItem className="w-full">
+                      <FormLabel>Phone Number</FormLabel>
+                      <FormControl>
+                        <Input
+                          type="tel"
+                          placeholder="+1 (123) 456-7890"
+                          {...field}
+                          className="rounded-full border p-6"
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500" />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
+
+              {/* Message Field */}
+              <motion.div variants={itemVariants}>
+                <FormField
+                  control={form.control}
+                  name="message"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel>Message</FormLabel>
+                      <FormControl>
+                        <Textarea
+                          placeholder="Tell us a little bit about yourself"
+                          className="resize-none rounded-2xl border p-6"
+                          {...field}
+                        />
+                      </FormControl>
+                      <FormMessage className="text-red-500" />
+                    </FormItem>
+                  )}
+                />
+              </motion.div>
+
+              {/* Submit Button */}
+              <motion.div variants={itemVariants}>
+                <Button
+                  type="submit"
+                  className="w-full rounded-full bg-primary py-6 text-white transition duration-200"
+                >
+                  Submit
+                </Button>
+              </motion.div>
+            </motion.form>
+          </Form>
+        </motion.div>
       </motion.div>
-    </motion.div>
-    <FAQ/>
-    <Footer/>
+      <FAQ />
+      <Footer />
     </>
   );
 }

@@ -26,5 +26,18 @@ services:
     ports:
       - "5436:5432"
 
+  mail:
+    restart: unless-stopped
+    image: 'axllent/mailpit:latest'
+    ports:
+      - '1025:1025'
+      - '8025:8025'
+
+    volumes:
+      - 'mail-data:/mail'
+
 volumes:
   db-data:
+  mail-data:
+
+
