@@ -68,7 +68,7 @@ export default function About() {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="space-y-8 rounded-3xl bg-gradient-to-r from-primary to-indigo-500 p-10 text-white shadow-2xl"
+          className="space-y-8 rounded-3xl bg-gradient-to-r from-primary to-indigo-800 p-10 text-white shadow-2xl"
         >
           <h2 className="text-4xl font-extrabold tracking-tight drop-shadow-lg md:text-5xl">
             About Us
@@ -77,22 +77,39 @@ export default function About() {
             <p>
               Since our founding, Mziyonke Driving School has had the
               opportunity to help countless learners acquire foundational
-              skills, develop new techniques, and confidently move forward in
-              their learning journey.
+              skills, develop new techniques and confidently move forward in
+              their learning journey. Known as the best Driving School in the
+              Vosloorus area, we provide a wide range of courses to support
+              Learners from all backgrounds and levels.
             </p>
             <p>
-              Founded by Sifiso Kheswa in 2013, our school carries a name deeply
-              rooted in familial history, tradition, and care.
+              Mziyonke Driving School, founded by Sifiso Kheswa in 2013, carries
+              a name deeply rooted in familial history and a tradition of
+              support and care. The driving school derives its name from
+              Sifiso&apos;s grandfather, who was a diligent provider in his
+              community, cultivating crops and generously offering them to
+              numerous households.
             </p>
             <p>
-              &ldquo;Mziyonke&ldquo; reflects a legacy of support and
-              nurturing—an ethos that touches every life we encounter.
+              The name &apos;Mziyonke&apos; reflects the legacy of a fatherly
+              figure who not only provides but also supports and takes care of
+              all houses within his reach. This ethos of nurturing and
+              assistance is carried forward in the driving school&apos;s
+              mission, emphasizing a commitment to guiding and supporting
+              individuals on their journey to becoming skilled and responsible
+              drivers.
+            </p>
+            <p>
+              Mziyonke has 3 offices, One located in Dawnpark and the other two
+              offices are located right in the heart of Vosloorus encompassing
+              17 employees who contribute immensely to the success of the
+              company.
             </p>
           </div>
           <motion.div whileTap={{ scale: 0.95 }}>
             <Button
               onClick={() => router.push("/courses")}
-              className="rounded-full bg-white px-8 py-3 text-lg font-semibold text-blue-600 shadow-md transition-shadow duration-300 hover:shadow-xl hover:text-white"
+              className="rounded-full bg-white px-8 py-3 text-lg font-semibold text-blue-600 shadow-md transition-shadow duration-300 hover:text-white hover:shadow-xl"
             >
               View Courses
             </Button>
