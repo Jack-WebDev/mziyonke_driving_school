@@ -25,19 +25,30 @@ export default function Hero() {
   const router = useRouter();
   const officeLocations = [
     {
-      city: "New York",
-      address: "123 Tech Lane, Manhattan",
-      phone: "(212) 555-1234",
-      email: "ny-office@company.com",
+      city: "Soweto",
+      address: "Diepkloof Shopping Centre",
+      phone: "+27 (0) XX XXX XXXX",
+      email: "soweto@yourbusiness.co.za",
     },
     {
-      city: "San Francisco",
-      address: "456 Innovation Drive, SoMa",
-      phone: "(415) 555-5678",
-      email: "sf-office@company.com",
+      city: "Vosloorus",
+      address: "8147 Masianoke Street",
+      phone: "+27 (0) XX XXX XXXX",
+      email: "vosloorus1@yourbusiness.co.za",
+    },
+    {
+      city: "Vosloorus",
+      address: "6269 Sam Sekoati Avenue",
+      phone: "+27 (0) XX XXX XXXX",
+      email: "vosloorus2@yourbusiness.co.za",
+    },
+    {
+      city: "Dawnpark",
+      address: "80 Galahad Street, Dawnpark",
+      phone: "+27 (0) XX XXX XXXX",
+      email: "dawnpark@yourbusiness.co.za",
     },
   ];
-
 
   const handleClick = () => {
     router.push("/courses");
@@ -57,53 +68,56 @@ export default function Hero() {
           <p className="text-lg font-light">
             Experience the best driving instruction tailored to your needs.
           </p>
-          <div className="flex gap-x-4 justify-center md:justify-start">
-            <button onClick={handleClick} className="mt-6 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition hover:bg-primary-foreground">
+          <div className="flex justify-center gap-x-4 md:justify-start">
+            <button
+              onClick={handleClick}
+              className="mt-6 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition hover:bg-primary-foreground"
+            >
               View Courses
             </button>
             <Dialog>
               <DialogTrigger asChild>
-                <button className="flex  gap-x-2 mt-6 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition hover:bg-primary-foreground">
+                <button className="mt-6 flex gap-x-2 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition">
                   <MapPinCheck className="h-6 w-6" /> Find Us
                 </button>
               </DialogTrigger>
-              <DialogContent className="w-[90%] rounded-xl">
+              <DialogContent className="w-full max-w-3xl rounded-xl">
                 <DialogHeader>
                   <DialogTitle className="text-2xl font-bold text-gray-800">
                     Find Our Offices
                   </DialogTitle>
                   <DialogDescription className="text-gray-600">
-                    Discover our convenient locations across major tech hubs.
+                    Visit us at any of our convenient locations.
                   </DialogDescription>
                 </DialogHeader>
 
-                <div className="space-y-4">
+                <div className="mt-4 max-h-96 space-y-4 overflow-y-auto pr-2">
                   {officeLocations.map((office, index) => (
                     <motion.div
-                      key={office.city}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.2 }}
-                      className="rounded-lg border border-gray-200 bg-gray-50 p-4 transition-all hover:shadow-md"
+                      key={`${office.city}-${index}`}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      className="rounded-lg border border-gray-200 bg-white p-4 transition-all hover:shadow-md"
                     >
                       <div className="mb-2 flex items-center">
-                        <Building2 className="mr-2 text-indigo-600" />
+                        <Building2 className="mr-3 h-6 w-6 text-indigo-600" />
                         <h3 className="text-xl font-semibold text-gray-800">
                           {office.city}
                         </h3>
                       </div>
-                      <div className="space-y-2">
+                      <div className="space-y-3 pl-2">
                         <div className="flex items-center text-gray-700">
-                          <MapPinCheck className="mr-2 h-5 w-5 text-green-600" />
-                          {office.address}
+                          <MapPinCheck className="mr-2 h-5 w-5 flex-shrink-0 text-green-600" />
+                          <span>{office.address}</span>
                         </div>
                         <div className="flex items-center text-gray-700">
-                          <Phone className="mr-2 h-5 w-5 text-blue-600" />
-                          {office.phone}
+                          <Phone className="mr-2 h-5 w-5 flex-shrink-0 text-blue-600" />
+                          <span>{office.phone}</span>
                         </div>
                         <div className="flex items-center text-gray-700">
-                          <Mail className="mr-2 h-5 w-5 text-red-600" />
-                          {office.email}
+                          <Mail className="mr-2 h-5 w-5 flex-shrink-0 text-red-600" />
+                          <span>{office.email}</span>
                         </div>
                       </div>
                     </motion.div>
