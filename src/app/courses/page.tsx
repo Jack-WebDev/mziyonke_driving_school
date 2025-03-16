@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Download, Star } from "lucide-react";
-import code8 from '~/assets/IMG_6174 (1).PNG';
+import code8 from '~/assets/code8.jpg';
 import code10 from '~/assets/code10.jpeg';
 import code14 from '~/assets/code14-car3.jpeg';
 import Image, { type StaticImageData } from "next/image";
@@ -28,7 +28,7 @@ const courses: CourseProps[] = [
     category: "Driving Course",
     title: "Code 8 - Light Motor Vehicles",
     description:
-      "Master the basics of driving light motor vehicles safely and confidently.",
+      "Master the basics of driving light motor vehicles safely.",
     rating: 4.5,
     reviews: 120,
 

@@ -2,12 +2,11 @@
 
 import { motion } from "framer-motion";
 import CourseCard from "~/modules/courses/components/CourseCard";
-import code8Car from '~/assets/code8.JPG';
-import code10Car from '~/assets/code10-car3.jpeg';
-import code14Car from '~/assets/code14-car3.jpeg';
+import code8Car from "~/assets/IMG_6177 (1).png";
+import code10Car from "~/assets/code10-car3.jpeg";
+import code14Car from "~/assets/code14-car3.jpeg";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
-
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -19,7 +18,6 @@ const containerVariants = {
   },
 };
 
-
 export default function Courses() {
   const router = useRouter();
 
@@ -27,9 +25,8 @@ export default function Courses() {
     router.push("/courses");
   };
 
-
   return (
-    <div className="grid mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+    <div className="mx-auto grid max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -76,7 +73,12 @@ export default function Courses() {
         />
       </motion.div>
 
-      <Button onClick={handleClick} className="rounded-full py-6 px-12 w-fit justify-self-center mt-20 border border-primary bg-white text-primary hover:text-white">View All Courses</Button>
+      <Button
+        onClick={handleClick}
+        className="mt-20 w-fit justify-self-center rounded-full border border-primary bg-white px-12 py-6 text-primary hover:text-white"
+      >
+        View All Courses
+      </Button>
     </div>
   );
 }
