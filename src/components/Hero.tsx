@@ -28,25 +28,25 @@ export default function Hero() {
       city: "Soweto",
       address: "Diepkloof Shopping Centre",
       phone: "+27 (0) XX XXX XXXX",
-      email: "soweto@yourbusiness.co.za",
+      email: "soweto@mail.co.za",
     },
     {
       city: "Vosloorus",
       address: "8147 Masianoke Street",
       phone: "+27 (0) XX XXX XXXX",
-      email: "vosloorus1@yourbusiness.co.za",
+      email: "vosloorus1@mail.co.za",
     },
     {
       city: "Vosloorus",
       address: "6269 Sam Sekoati Avenue",
       phone: "+27 (0) XX XXX XXXX",
-      email: "vosloorus2@yourbusiness.co.za",
+      email: "vosloorus2@mail.co.za",
     },
     {
       city: "Dawnpark",
       address: "80 Galahad Street, Dawnpark",
       phone: "+27 (0) XX XXX XXXX",
-      email: "dawnpark@yourbusiness.co.za",
+      email: "dawnpark@mail.co.za",
     },
   ];
 
