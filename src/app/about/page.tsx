@@ -153,7 +153,7 @@ export default function About() {
                         <CountUp
                           start={0}
                           end={achievement.stat}
-                          duration={3}
+                          duration={10}
                           separator=","
                         />
                       ) : (
