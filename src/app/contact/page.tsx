@@ -217,7 +217,7 @@ export default function ContactUs() {
                       <FormLabel>Message</FormLabel>
                       <FormControl>
                         <Textarea
-                          placeholder="Tell us a little bit about yourself"
+                          placeholder="Tell us a little about your driving goals"
                           className="resize-none rounded-2xl border p-6"
                           {...field}
                         />

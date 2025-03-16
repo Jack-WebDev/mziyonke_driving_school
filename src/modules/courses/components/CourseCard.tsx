@@ -43,7 +43,7 @@ export default function CourseCard({
       whileHover="hover"
       className="transform overflow-hidden rounded-xl bg-white shadow-lg transition-all duration-300 hover:shadow-xl"
     >
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-80 overflow-hidden">
         <Image
           src={imgSrc}
           alt={title}

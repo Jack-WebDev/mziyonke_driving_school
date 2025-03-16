@@ -74,7 +74,7 @@ export default function Courses() {
           <Image
             src={course.image}
             alt={course.title}
-            className="h-40 w-full rounded-lg object-cover"
+            className="h-80 w-full rounded-lg object-cover"
           />
 
           {/* Course Category */}
