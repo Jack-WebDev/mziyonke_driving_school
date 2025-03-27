@@ -1,6 +1,9 @@
 "use client";
 import InstructorCard from '~/modules/instructors/components/InstructorCard'
-import instructor from '~/assets/code14-car2.jpg'
+import instructor1 from '~/assets/tata.jpg'
+import instructor2 from '~/assets/Luzuko.jpg'
+import instructor3 from '~/assets/Londi.jpg'
+
 import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
 
@@ -24,22 +27,19 @@ export default function Instructors() {
   
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <InstructorCard 
-              imgSrc={instructor} 
-              name="Lebohang Maisa" 
-              title="Facilitator" 
-              phone='+27 71 234 5678'
+              imgSrc={instructor1} 
+              name="Tata" 
+              title="Instructor" 
             />
             <InstructorCard 
-              imgSrc={instructor} 
-              name="Botho Maake" 
+              imgSrc={instructor2} 
+              name="Luzuko" 
               title="Instructor" 
-              phone='+27 72 345 6789'
             />
             <InstructorCard 
-              imgSrc={instructor} 
-              name="Elijah Ysaseng" 
+              imgSrc={instructor3} 
+              name="Londi" 
               title="Instructor" 
-              phone='+27 73 456 7890'
             />
           </div>
         </div>
