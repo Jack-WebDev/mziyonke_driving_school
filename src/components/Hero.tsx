@@ -2,15 +2,12 @@
 import { motion } from "framer-motion";
 
 import {
-  BicepsFlexed,
   Building2,
-  Handshake,
+  ChevronRight,
   Mail,
   MapPinCheck,
   Phone,
-  Users,
 } from "lucide-react";
-import Image from "next/image";
 import {
   Dialog,
   DialogContent,
@@ -55,151 +52,113 @@ export default function Hero() {
   };
 
   return (
-    <section className="h-screen">
-      <div className="container mx-auto flex h-2/3 flex-col items-center justify-between space-y-8 px-6 lg:flex-row lg:space-y-0 lg:px-12">
-        <div className="max-w-lg space-y-6 text-center lg:text-left">
-          <p className="text-lg font-medium">
-            Your Journey to Safe Driving Starts Here!
-          </p>
-          <h1 className="text-4xl font-extrabold leading-tight lg:text-5xl">
-            Welcome to{" "}
-            <span className="text-primary">Mziyonke Driving School</span>
-          </h1>
-          <p className="text-lg font-light">
-            Experience the best driving instruction tailored to your needs.
-          </p>
-          <div className="flex justify-center gap-x-4 md:justify-start">
-            <button
-              onClick={handleClick}
-              className="mt-6 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition hover:bg-primary-foreground"
-            >
-              View Courses
-            </button>
-            <Dialog>
-              <DialogTrigger asChild>
-                <button className="mt-6 flex gap-x-2 rounded-lg bg-primary px-6 py-3 text-white shadow-lg transition">
-                  <MapPinCheck className="h-6 w-6" /> Find Us
-                </button>
-              </DialogTrigger>
-              <DialogContent className="w-full max-w-3xl rounded-xl">
-                <DialogHeader>
-                  <DialogTitle className="text-2xl font-bold text-gray-800">
-                    Find Our Offices
-                  </DialogTitle>
-                  <DialogDescription className="text-gray-600">
-                    Visit us at any of our convenient locations.
-                  </DialogDescription>
-                </DialogHeader>
+    <section className="relative h-screen w-full overflow-hidden">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/hero.jpeg')" }}
+      >
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
+      </div>
 
-                <div className="mt-4 max-h-96 space-y-4 overflow-y-auto pr-2">
-                  {officeLocations.map((office, index) => (
-                    <motion.div
-                      key={`${office.city}-${index}`}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="rounded-lg border border-gray-200 bg-white p-4 transition-all hover:shadow-md"
-                    >
-                      <div className="mb-2 flex items-center">
-                        <Building2 className="mr-3 h-6 w-6 text-indigo-600" />
-                        <h3 className="text-xl font-semibold text-gray-800">
-                          {office.city}
-                        </h3>
-                      </div>
-                      <div className="space-y-3 pl-2">
-                        <div className="flex items-center text-gray-700">
-                          <MapPinCheck className="mr-2 h-5 w-5 flex-shrink-0 text-green-600" />
-                          <span>{office.address}</span>
+      <div className="relative h-full w-full">
+        <div className="container mx-auto flex h-full flex-col items-center justify-center px-6 lg:items-start lg:justify-center lg:px-12 xl:px-24">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="max-w-xl space-y-6 text-center lg:text-left"
+          >
+            <div className="inline-block rounded-full bg-white/10 px-4 py-1 backdrop-blur-sm">
+              <p className="text-sm font-medium tracking-wider text-white">
+                YOUR JOURNEY TO SAFE DRIVING STARTS HERE
+              </p>
+            </div>
+
+            <h1 className="text-4xl font-extrabold leading-tight text-white lg:text-5xl xl:text-6xl">
+              Welcome to <span className="text-primary">Mziyonke</span> Driving
+              School
+            </h1>
+
+            <p className="text-lg font-light text-gray-200">
+              Experience the best driving instruction tailored to your needs
+              with our professional instructors and modern learning methods.
+            </p>
+
+            <div className="flex flex-col justify-center gap-4 pt-2 sm:flex-row lg:justify-start">
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={handleClick}
+                className="group relative overflow-hidden rounded-lg bg-primary px-8 py-4 font-medium text-white shadow-lg transition"
+              >
+                <span className="relative z-10 flex items-center justify-center">
+                  View Courses{" "}
+                  <ChevronRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </span>
+                <span className="absolute inset-0 z-0 bg-primary opacity-0 transition-opacity group-hover:opacity-80"></span>
+              </motion.button>
+
+              <Dialog>
+                <DialogTrigger asChild>
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="group relative overflow-hidden rounded-lg border border-white/30 bg-white/10 px-8 py-4 font-medium text-white shadow-lg backdrop-blur-sm transition hover:bg-white/20"
+                  >
+                    <span className="flex items-center justify-center">
+                      <MapPinCheck className="mr-2 h-5 w-5" /> Find Us
+                    </span>
+                  </motion.button>
+                </DialogTrigger>
+                <DialogContent className="w-full max-w-3xl rounded-xl bg-white p-6">
+                  <DialogHeader>
+                    <DialogTitle className="text-2xl font-bold text-gray-800">
+                      Find Our Offices
+                    </DialogTitle>
+                    <DialogDescription className="text-gray-600">
+                      Visit us at any of our convenient locations throughout
+                      South Africa.
+                    </DialogDescription>
+                  </DialogHeader>
+
+                  <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                    {officeLocations.map((office, index) => (
+                      <motion.div
+                        key={`${office.city}-${index}`}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+                      >
+                        <div className="mb-3 flex items-center">
+                          <div className="mr-3 rounded-full bg-primary/10 p-2">
+                            <Building2 className="h-5 w-5 text-primary" />
+                          </div>
+                          <h3 className="text-lg font-semibold text-gray-800">
+                            {office.city}
+                          </h3>
                         </div>
-                        <div className="flex items-center text-gray-700">
-                          <Phone className="mr-2 h-5 w-5 flex-shrink-0 text-blue-600" />
-                          <span>{office.phone}</span>
+                        <div className="space-y-3 pl-2">
+                          <div className="flex items-center text-gray-700">
+                            <MapPinCheck className="mr-2 h-4 w-4 flex-shrink-0 text-primary" />
+                            <span className="text-sm">{office.address}</span>
+                          </div>
+                          <div className="flex items-center text-gray-700">
+                            <Phone className="mr-2 h-4 w-4 flex-shrink-0 text-primary" />
+                            <span className="text-sm">{office.phone}</span>
+                          </div>
+                          <div className="flex items-center text-gray-700">
+                            <Mail className="mr-2 h-4 w-4 flex-shrink-0 text-primary" />
+                            <span className="text-sm">{office.email}</span>
+                          </div>
                         </div>
-                        <div className="flex items-center text-gray-700">
-                          <Mail className="mr-2 h-5 w-5 flex-shrink-0 text-red-600" />
-                          <span>{office.email}</span>
-                        </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </DialogContent>
-            </Dialog>
-          </div>
-        </div>
-
-        <div className="relative hidden h-full w-full items-center justify-center lg:flex">
-          <div className="relative">
-            <Image src="/hero.jpg" alt="hero" width={1000} height={500} />
-
-            <motion.div
-              className="absolute left-0 top-[50px] flex items-center justify-start rounded-xl border border-blue-100/50 bg-white/95 p-4 text-blue-800 shadow-lg backdrop-blur-sm"
-              animate={{ y: [0, -8, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-            >
-              <div className="flex items-center space-x-3">
-                <Users className="text-blue-600" size={20} />
-                <span className="font-medium">Expert Guidance</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="absolute right-0 top-[50px] flex items-center justify-start rounded-xl border border-blue-100/50 bg-white/95 p-4 text-blue-800 shadow-lg backdrop-blur-sm"
-              animate={{ y: [-9, 0, -8] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-            >
-              <div className="flex items-center space-x-3">
-                <BicepsFlexed className="text-blue-600" size={20} />
-                <span className="font-medium">Confidence on the Road</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-[50px] left-0 flex items-center justify-start rounded-xl border border-blue-100/50 bg-white/95 p-4 text-blue-800 shadow-lg backdrop-blur-sm"
-              animate={{ y: [-8, 0, -8] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-            >
-              <div className="flex items-center space-x-3">
-                <Handshake className="text-blue-600" size={20} />
-                <span className="font-medium">Unmatched Service</span>
-              </div>
-            </motion.div>
-
-            <motion.div
-              className="absolute bottom-[50px] right-0 flex items-center justify-start rounded-xl border border-blue-100/50 bg-white/95 p-4 text-blue-800 shadow-lg backdrop-blur-sm"
-              animate={{ y: [0, -8, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                repeatType: "reverse",
-                ease: "easeInOut",
-              }}
-              whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
-            >
-              <div className="flex items-center space-x-3">
-                <Users className="text-blue-600" size={20} />
-                <span className="font-medium">Customized Learning</span>
-              </div>
-            </motion.div>
-          </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </DialogContent>
+              </Dialog>
+            </div>
+          </motion.div>
         </div>
       </div>
     </section>
