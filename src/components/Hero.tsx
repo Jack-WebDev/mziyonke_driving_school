@@ -75,7 +75,7 @@ export default function Hero() {
             </div>
 
             <h1 className="text-4xl font-extrabold leading-tight text-white lg:text-5xl xl:text-6xl">
-              Welcome to <span className="text-primary">Mziyonke</span> Driving
+              Welcome to <span className="text-red-600">Mziyonke</span> Driving
               School
             </h1>
 
