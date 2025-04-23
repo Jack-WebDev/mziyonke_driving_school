@@ -78,6 +78,8 @@ export default function Footer() {
 
         <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
           © {new Date().getFullYear()} Mziyonke Driving School | Created and Maintained by
+          <div>
+
           <Link
             href="https://next-portfolio-tau-green.vercel.app/"
             target="_blank"
@@ -85,6 +87,8 @@ export default function Footer() {
           >
             Jack WebDev
           </Link>
+          <span className="text-white"> | HLE HUB</span>
+          </div>
         </div>
       </div>
     </footer>
