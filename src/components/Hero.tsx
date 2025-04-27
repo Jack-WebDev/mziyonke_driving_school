@@ -25,25 +25,21 @@ export default function Hero() {
       city: "Soweto",
       address: "Diepkloof Shopping Centre",
       phone: "+27 (0) XX XXX XXXX",
-      email: "soweto@mail.co.za",
     },
     {
       city: "Vosloorus",
       address: "8147 Masianoke Street",
       phone: "+27 (0) XX XXX XXXX",
-      email: "vosloorus1@mail.co.za",
     },
     {
       city: "Vosloorus",
       address: "6269 Sam Sekoati Avenue",
       phone: "+27 (0) XX XXX XXXX",
-      email: "vosloorus2@mail.co.za",
     },
     {
       city: "Dawnpark",
       address: "80 Galahad Street, Dawnpark",
       phone: "+27 (0) XX XXX XXXX",
-      email: "dawnpark@mail.co.za",
     },
   ];
 
@@ -55,7 +51,7 @@ export default function Hero() {
     <section className="relative h-screen w-full overflow-hidden">
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: "url('/hero.jpeg')" }}
+        style={{ backgroundImage: "url('/hero3.jpeg')" }}
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40"></div>
       </div>
@@ -117,7 +113,7 @@ export default function Hero() {
                     </DialogTitle>
                     <DialogDescription className="text-gray-600">
                       Visit us at any of our convenient locations throughout
-                      South Africa.
+                      Gauteng.
                     </DialogDescription>
                   </DialogHeader>
 
@@ -146,10 +142,6 @@ export default function Hero() {
                           <div className="flex items-center text-gray-700">
                             <Phone className="mr-2 h-4 w-4 flex-shrink-0 text-primary" />
                             <span className="text-sm">{office.phone}</span>
-                          </div>
-                          <div className="flex items-center text-gray-700">
-                            <Mail className="mr-2 h-4 w-4 flex-shrink-0 text-primary" />
-                            <span className="text-sm">{office.email}</span>
                           </div>
                         </div>
                       </motion.div>

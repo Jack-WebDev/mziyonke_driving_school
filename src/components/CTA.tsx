@@ -38,7 +38,7 @@ export default function CTA() {
           onClick={handleClick}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-300 ease-in-out shadow-md hover:shadow-lg"
+          className="inline-flex items-center justify-center px-8 py-6 border border-transparent text-base font-medium rounded-full text-white bg-primary focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary transition-colors duration-300 ease-in-out shadow-md hover:shadow-lg"
         >
           Contact Us
         </motion.button>

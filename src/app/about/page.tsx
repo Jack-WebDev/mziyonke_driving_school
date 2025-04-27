@@ -55,8 +55,8 @@ export default function About() {
       icon: <MapPin className="h-12 w-12 text-red-500" />,
       title: "Strategic Locations",
       description: "Accessible training centers",
-      stat: 3,
-      animate: true,
+      stat: 4,
+      animate: false,
     },
   ];
 
@@ -68,12 +68,12 @@ export default function About() {
           initial="hidden"
           animate="visible"
           variants={fadeIn}
-          className="space-y-8 rounded-3xl bg-gradient-to-r from-primary to-indigo-800 p-10 text-white shadow-2xl"
+          className="mx-auto w-1/2 space-y-8 rounded-3xl bg-gradient-to-r from-primary to-indigo-800 p-10 text-white shadow-2xl"
         >
           <h2 className="text-4xl font-extrabold tracking-tight drop-shadow-lg md:text-5xl">
             About Us
           </h2>
-          <div className="prose prose-lg max-w-none space-y-6">
+          <div className="prose prose-lg text-md max-w-none space-y-6">
             <p>
               Since our founding, Mziyonke Driving School has had the
               opportunity to help countless learners acquire foundational
@@ -100,10 +100,10 @@ export default function About() {
               drivers.
             </p>
             <p>
-              Mziyonke has 3 offices, One located in Dawnpark and the other two
-              offices are located right in the heart of Vosloorus encompassing
-              17 employees who contribute immensely to the success of the
-              company.
+              Mziyonke has 4 offices, One located in Dawnpark, another in
+              Soweto, and the other two offices are located right in the heart
+              of Vosloorus encompassing 17 employees who contribute immensely to
+              the success of the company.
             </p>
           </div>
           <motion.div whileTap={{ scale: 0.95 }}>
@@ -153,7 +153,7 @@ export default function About() {
                         <CountUp
                           start={0}
                           end={achievement.stat}
-                          duration={10}
+                          duration={20}
                           separator=","
                         />
                       ) : (
@@ -212,8 +212,9 @@ export default function About() {
             <div className="space-y-4">
               {[
                 "Expert Staff of dedicated professionals",
-                "Flexible scheduling",
-                "Modern and well-maintained cars",
+                "Personalized lessons tailored to your learning pace",
+
+                "Safe, comfortable vehicles for confident driving practice",
               ].map((feature, index) => (
                 <motion.div
                   key={index}

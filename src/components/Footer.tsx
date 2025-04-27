@@ -70,7 +70,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-red-500" />
-                <span>info@mziyonke.co.za</span>
+                <span>mziyonkefinancial@gmail.com</span>
               </div>
             </div>
           </div>

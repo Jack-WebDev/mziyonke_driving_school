@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import CourseCard from "~/modules/courses/components/CourseCard";
 import code8Car from "~/assets/IMG_6177 (1).png";
 import code10Car from "~/assets/code10-car3.jpeg";
-import code14Car from "~/assets/code14-car3.jpeg";
+import code14Car from "~/assets/code14.jpg";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
 

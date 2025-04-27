@@ -44,7 +44,7 @@ export default function Instructors() {
           </div>
         </div>
 
-        <Button onClick={handleClick} className='w-fit justify-self-center mt-20'>View All Staff</Button>
+        <Button onClick={handleClick} className='px-8 py-6 rounded-full justify-self-center mt-20'>View All Staff</Button>
       </section>
     );
   }

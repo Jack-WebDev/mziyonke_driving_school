@@ -11,7 +11,7 @@ export const createNotification = async (
   try {
     await mailer.sendMail({
       from: input.email,
-      to: "Mziyonke@mail.com",
+      to: "mziyonkefinancial@gmail.com",
       subject: "Email from website",
       data: {
         sentDate: new Date(),
