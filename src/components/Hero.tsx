@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import {
   Building2,
   ChevronRight,
-  Mail,
+  MapPin,
   MapPinCheck,
   Phone,
 } from "lucide-react";
@@ -24,24 +24,22 @@ export default function Hero() {
     {
       city: "Soweto",
       address: "Diepkloof Shopping Centre",
-      phone: "+27 (0) XX XXX XXXX",
     },
     {
       city: "Vosloorus",
       address: "8147 Masianoke Street",
-      phone: "+27 (0) XX XXX XXXX",
     },
     {
       city: "Vosloorus",
       address: "6269 Sam Sekoati Avenue",
-      phone: "+27 (0) XX XXX XXXX",
     },
     {
       city: "Dawnpark",
       address: "80 Galahad Street, Dawnpark",
-      phone: "+27 (0) XX XXX XXXX",
     },
   ];
+
+  const phoneNumber = "+27 10 335 0976";
 
   const handleClick = () => {
     router.push("/courses");
@@ -117,35 +115,38 @@ export default function Hero() {
                     </DialogDescription>
                   </DialogHeader>
 
-                  <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                    {officeLocations.map((office, index) => (
-                      <motion.div
-                        key={`${office.city}-${index}`}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: index * 0.1 }}
-                        className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
-                      >
-                        <div className="mb-3 flex items-center">
-                          <div className="mr-3 rounded-full bg-primary/10 p-2">
-                            <Building2 className="h-5 w-5 text-primary" />
+                  <div className="space-y-8">
+                    <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                      {officeLocations.map((office, index) => (
+                        <div
+                          key={`${office.city}-${index}`}
+                          className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+                        >
+                          <div className="mb-3 flex items-center">
+                            <div className="mr-3 rounded-full bg-blue-100 p-2">
+                              <Building2 className="h-5 w-5 text-blue-600" />
+                            </div>
+                            <h3 className="text-lg font-semibold text-gray-800">
+                              {office.city}
+                            </h3>
                           </div>
-                          <h3 className="text-lg font-semibold text-gray-800">
-                            {office.city}
-                          </h3>
-                        </div>
-                        <div className="space-y-3 pl-2">
-                          <div className="flex items-center text-gray-700">
-                            <MapPinCheck className="mr-2 h-4 w-4 flex-shrink-0 text-primary" />
-                            <span className="text-sm">{office.address}</span>
-                          </div>
-                          <div className="flex items-center text-gray-700">
-                            <Phone className="mr-2 h-4 w-4 flex-shrink-0 text-primary" />
-                            <span className="text-sm">{office.phone}</span>
+                          <div className="space-y-3 pl-2">
+                            <div className="flex items-center text-gray-700">
+                              <MapPin className="mr-2 h-4 w-4 flex-shrink-0 text-blue-600" />
+                              <span className="text-sm">{office.address}</span>
+                            </div>
                           </div>
                         </div>
-                      </motion.div>
-                    ))}
+                      ))}
+                    </div>
+
+                    {/* Shared contact information section */}
+                    <div className="mx-auto max-w-md rounded-lg border border-gray-100 bg-white p-4 text-center shadow">
+                      <div className="flex items-center justify-center text-gray-700">
+                        <Phone className="mr-2 h-5 w-5 flex-shrink-0 text-blue-600" />
+                        <span className="text-lg">{phoneNumber}</span>
+                      </div>
+                    </div>
                   </div>
                 </DialogContent>
               </Dialog>

@@ -17,16 +17,26 @@ import img2 from "~/assets/gallery-image-2.jpeg";
 import img3 from "~/assets/gallery-image-3.jpeg";
 import img4 from "~/assets/gallery-image-4.jpeg";
 import img5 from "~/assets/gallery-image-5.jpeg";
+import img6 from "~/assets/gallery-image-11.jpg";
+import img7 from "~/assets/gallery-image-12.jpg";
+import img8 from "~/assets/gallery-image-13.jpg";
+import img9 from "~/assets/gallery-image-14.jpg";
+import img10 from "~/assets/gallery-image-15.jpg"
 import NavBar from "~/components/NavBar";
 import Footer from "~/components/Footer";
 import FAQ from "~/components/FAQ";
 
 const images = [
-  { src: img1, alt: "Driving Course - Code 8" },
   { src: img2, alt: "Truck Training - Code 10" },
   { src: img3, alt: "Heavy Vehicles - Code 14" },
+  { src: img1, alt: "Driving Course - Code 8" },
   { src: img4, alt: "Driving Course - Code 8" },
   { src: img5, alt: "Truck Training - Code 10" },
+  { src: img6, alt: "Truck Training - Code 10" },
+  { src: img7, alt: "Truck Training - Code 10" },
+  { src: img8, alt: "Truck Training - Code 10" },
+  { src: img9, alt: "Truck Training - Code 10" },
+  { src: img10, alt: "Truck Training - Code 10" },
 ];
 
 export default function Gallery() {

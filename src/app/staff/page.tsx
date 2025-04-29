@@ -1,4 +1,3 @@
-import InstructorCard from "~/modules/instructors/components/InstructorCard";
 import instructor1 from "~/assets/tata.jpg";
 import instructor2 from "~/assets/Luzuko.jpg";
 import instructor3 from "~/assets/Londi.jpg";
@@ -11,15 +10,19 @@ import instructor9 from "~/assets/sphesihle.jpg";
 import instructor10 from "~/assets/ndofaya.jpg";
 import instructor11 from "~/assets/mhlekazi.jpg";
 import instructor12 from "~/assets/kamohelo.jpg";
+import instructor13 from "~/assets/lungelo.png";
+import instructor14 from "~/assets/mdu.jpg";
 
-import sales1 from "~/assets/samkelesilwe.jpg";
-import sales2 from "~/assets/pretty.jpg";
-import sales3 from "~/assets/precious.jpg";
-import sales4 from "~/assets/njabulo.jpg";
+import bm1 from "~/assets/samkelesilwe.jpg";
+import bm2 from "~/assets/pretty.jpg";
+import bm3 from "~/assets/precious.jpg";
+import bm4 from "~/assets/busi.jpg";
+
 import sales5 from "~/assets/Milina.jpg";
 import sales6 from "~/assets/Leria.jpg";
 import sales7 from "~/assets/jabulile.jpg";
 import sales8 from "~/assets/kabelo.jpg";
+import sales9 from "~/assets/siya.jpg";
 
 import marketing1 from "~/assets/sihle_ndlovu.jpg";
 
@@ -32,10 +35,13 @@ export default function TeamPage() {
   const educators = [
     { img: instructor12, name: "Kamohelo" },
     { img: instructor3, name: "Londi" },
+    { img: instructor8, name: "Sphesihle Kheswa" },
   ];
   const branchManagers = [
-    { img: sales2, name: "Pretty", phone: "0680410477" },
-    { img: sales3, name: "Precious", phone: "" },
+    { img: bm2, name: "Pretty", phone: "0680410477" },
+    { img: bm3, name: "Precious", phone: "" },
+    { img: bm1, name: "Samkelesilwe", phone: "0720977222" },
+    { img: bm4, name: "Busi", phone: "" },
   ];
   const marketingTeam = [{ img: marketing1, name: "Sihle" }];
   const instructors = [
@@ -45,26 +51,65 @@ export default function TeamPage() {
     { img: instructor5, name: "Dhlamini" },
     { img: instructor6, name: "Hlanganani" },
     { img: instructor7, name: "Tony" },
-    { img: instructor8, name: "Sphesihle Kheswa" },
+    { img: instructor13, name: "Lungelo" },
     { img: instructor9, name: "Sphesihle" },
     { img: instructor10, name: "Ndofaya" },
     { img: instructor11, name: "Mhlekazi" },
+    { img: instructor14, name: "Mduduzi" },
   ];
 
   const salesTeam = [
-    { img: sales1, name: "Samkelesilwe", phone: "0720977222" },
-
-    { img: sales4, name: "Njabulo", phone: "0722111103" },
     { img: sales5, name: "Milina", phone: "0729556729" },
     { img: sales6, name: "Leria", phone: "0710677968" },
     { img: sales7, name: "Jabulile", phone: "" },
     { img: sales8, name: "Kabelo", phone: "0717541825" },
+    { img: sales9, name: "Siya", phone: "0717541825" },
   ];
 
   return (
     <>
       <NavBar />
       <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
+        <section className="mb-16">
+          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
+            Meet Our <span className="text-primary">Branch Managers</span>
+          </h2>
+
+          {/* Images Collage */}
+          <div className="mb-8 grid grid-cols-4 gap-1 overflow-hidden rounded-lg shadow-lg">
+            {branchManagers.map((instructor, index) => (
+              <div
+                key={index}
+                className="group relative aspect-square overflow-hidden"
+              >
+                <Image
+                  src={instructor.img}
+                  alt={instructor.name}
+                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                  <p className="px-2 text-center text-sm font-medium text-white">
+                    {instructor.name}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Names List */}
+          <div className="rounded-lg bg-gray-50 p-6 shadow">
+            <h3 className="mb-4 text-center text-xl font-semibold">
+              Our Branch Managers
+            </h3>
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {branchManagers.map((instructor, index) => (
+                <div key={index} className="p-2 text-center">
+                  <p className="font-medium">{instructor.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
         {/* Instructors Section */}
         <section className="mb-16">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
@@ -97,7 +142,7 @@ export default function TeamPage() {
             <h3 className="mb-4 text-center text-xl font-semibold">
               Our Educators
             </h3>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {educators.map((instructor, index) => (
                 <div key={index} className="p-2 text-center">
                   <p className="font-medium">{instructor.name}</p>
@@ -137,7 +182,7 @@ export default function TeamPage() {
             <h3 className="mb-4 text-center text-xl font-semibold">
               Our Instructors
             </h3>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {instructors.map((instructor, index) => (
                 <div key={index} className="p-2 text-center">
                   <p className="font-medium">{instructor.name}</p>
@@ -179,7 +224,7 @@ export default function TeamPage() {
             <h3 className="mb-4 text-center text-xl font-semibold">
               Our Sales Team
             </h3>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
               {salesTeam.map((member, index) => (
                 <div key={index} className="p-2 text-center">
                   <p className="font-medium">{member.name}</p>
@@ -222,7 +267,7 @@ export default function TeamPage() {
             <h3 className="mb-4 text-center text-xl font-semibold">
               Our Marketing Team
             </h3>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-2">
               {marketingTeam.map((instructor, index) => (
                 <div key={index} className="p-2 text-center">
                   <p className="font-medium">{instructor.name}</p>

@@ -1,8 +1,8 @@
 "use client";
 import InstructorCard from '~/modules/instructors/components/InstructorCard'
-import instructor1 from '~/assets/tata.jpg'
-import instructor2 from '~/assets/Luzuko.jpg'
-import instructor3 from '~/assets/Londi.jpg'
+import instructor1 from '~/assets/kamohelo.jpg'
+import instructor2 from '~/assets/tony.jpg'
+import instructor3 from '~/assets/pretty.jpg'
 
 import { Button } from './ui/button';
 import { useRouter } from 'next/navigation';
@@ -28,18 +28,18 @@ export default function Instructors() {
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             <InstructorCard 
               imgSrc={instructor1} 
-              name="Tata" 
-              title="Instructor" 
+              name="Kamohelo" 
+              title="Educator" 
             />
             <InstructorCard 
               imgSrc={instructor2} 
-              name="Luzuko" 
+              name="Tony" 
               title="Instructor" 
             />
             <InstructorCard 
               imgSrc={instructor3} 
-              name="Londi" 
-              title="Instructor" 
+              name="Pretty" 
+              title="Sales" 
             />
           </div>
         </div>
