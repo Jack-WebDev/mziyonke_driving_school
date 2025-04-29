@@ -38,9 +38,9 @@ export default function TeamPage() {
     { img: instructor8, name: "Sphesihle Kheswa" },
   ];
   const branchManagers = [
-    { img: bm2, name: "Pretty", phone: "0680410477" },
+    { img: bm2, name: "Pretty", phone: "" },
     { img: bm3, name: "Precious", phone: "" },
-    { img: bm1, name: "Samkelesilwe", phone: "0720977222" },
+    { img: bm1, name: "Samkelesilwe", phone: "" },
     { img: bm4, name: "Busi", phone: "" },
   ];
   const marketingTeam = [{ img: marketing1, name: "Sihle" }];
@@ -59,11 +59,11 @@ export default function TeamPage() {
   ];
 
   const salesTeam = [
-    { img: sales5, name: "Milina", phone: "0729556729" },
-    { img: sales6, name: "Leria", phone: "0710677968" },
+    { img: sales5, name: "Milina", phone: "" },
+    { img: sales6, name: "Leria", phone: "" },
     { img: sales7, name: "Jabulile", phone: "" },
-    { img: sales8, name: "Kabelo", phone: "0717541825" },
-    { img: sales9, name: "Siya", phone: "0717541825" },
+    { img: sales8, name: "Kabelo", phone: "" },
+    { img: sales9, name: "Siya", phone: "" },
   ];
 
   return (
