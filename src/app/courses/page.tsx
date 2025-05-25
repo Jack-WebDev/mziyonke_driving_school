@@ -61,7 +61,7 @@ export default function Courses() {
   return (
     <>
     <NavBar/>
-    <div className="container mx-auto grid grid-cols-1 gap-8 px-6 py-12 md:grid-cols-3">
+    <div className="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 py-12 lg:grid-cols-3">
       {courses.map((course, index) => (
         <motion.div
           key={index}

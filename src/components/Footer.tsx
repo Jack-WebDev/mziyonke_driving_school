@@ -1,12 +1,9 @@
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
-  Twitter,
 } from "lucide-react";
+import {FaInstagram, FaTiktok, FaFacebook} from 'react-icons/fa'
 import Link from "next/link";
 
 export default function Footer() {
@@ -25,11 +22,10 @@ export default function Footer() {
           <div>
             <h2 className="mb-4 text-2xl font-bold">Mziyonke Driving School</h2>
             <p className="mb-4 text-sm text-gray-400">
-              Professional driving education with comprehensive training and
-              expert staff.
+              The best service you deserve.
             </p>
             <div className="flex space-x-4">
-              {[Instagram, Twitter, Facebook, Linkedin].map((Icon, index) => (
+              {[FaFacebook, FaTiktok, FaInstagram].map((Icon, index) => (
                 <a
                   key={index}
                   href="#"
@@ -62,11 +58,11 @@ export default function Footer() {
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-2">
                 <MapPin className="h-5 w-5 text-green-500" />
-                <span>123 Driving Street, City, Country</span>
+                <span>8147 Masianoke Street</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Phone className="h-5 w-5 text-primary" />
-                <span>+27 123 456 7890</span>
+                <span>+27 76 215 2341</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-red-500" />

@@ -31,7 +31,7 @@ export default function InstructorCard({
             alt={name}
             width={192}
             height={192}
-            className="relative z-10 h-48 w-48 rounded-full border-4 border-white object-cover shadow-lg ring-2 ring-gray-900/10 transition-all group-hover:scale-105 group-hover:ring-primary/30"
+            className="relative z-10 h-48 w-48 rounded-full border-4 border-white object-contain shadow-lg ring-2 ring-gray-900/10 transition-all group-hover:scale-105 group-hover:ring-primary/30"
           />
         </div>
       </div>
