@@ -47,7 +47,7 @@ export default function CourseCard({
         <Image
           src={imgSrc}
           alt={title}
-          className="h-full w-full transform object-cover transition-transform duration-300"
+          className="h-[110%] w-full transform object-cover transition-transform duration-300"
           width={400}
           height={400}
         />

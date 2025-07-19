@@ -4,7 +4,6 @@ import instructor3 from "~/assets/Londi.jpg";
 import instructor4 from "~/assets/Snenhlanhla.jpg";
 import instructor5 from "~/assets/dhlamini.jpg";
 import instructor6 from "~/assets/hlanganani.jpg";
-import instructor7 from "~/assets/tony.jpg";
 import instructor8 from "~/assets/sphesihle-kheswa.jpg";
 import instructor9 from "~/assets/sphesihle.jpg";
 import instructor10 from "~/assets/ndofaya.jpg";
@@ -33,24 +32,23 @@ import Image from "next/image";
 
 export default function TeamPage() {
   const educators = [
-    { img: instructor12, name: "Kamohelo" },
-    { img: instructor3, name: "Londi" },
-    { img: instructor8, name: "Sphesihle Kheswa" },
+    { img: instructor12, name: "Kamogelo", branch: "Vosloorus Branch" },
+    { img: instructor3, name: "Londi", branch: "DawnPark Branch" },
+    { img: instructor8, name: "Sphesihle Kheswa", branch: "Soweto Branch" },
   ];
   const branchManagers = [
-    { img: bm2, name: "Pretty", phone: "" },
-    { img: bm3, name: "Precious", phone: "" },
-    { img: bm1, name: "Samkelesilwe", phone: "" },
-    { img: bm4, name: "Busi", phone: "" },
+    { img: bm2, name: "Pretty", phone: "", branch: "Soweto Branch" },
+    { img: bm3, name: "Precious", phone: "", branch: "Vosloorus Branch" },
+    { img: bm1, name: "Samkelesilwe", phone: "", branch: "DawnPark Branch" },
+    { img: bm4, name: "Busi", phone: "", branch: "Vosloorus Branch" },
   ];
   const marketingTeam = [{ img: marketing1, name: "Sihle" }];
   const instructors = [
     { img: instructor1, name: "Tata" },
-    { img: instructor2, name: "Luzuko" },
+    { img: instructor2, name: "Thulani" },
     { img: instructor4, name: "Snenhlanhla" },
     { img: instructor5, name: "Dhlamini" },
-    { img: instructor6, name: "Hlanganani" },
-    { img: instructor7, name: "Tony" },
+    { img: instructor6, name: "Buthelezi" },
     { img: instructor13, name: "Lungelo" },
     { img: instructor9, name: "Sphesihle" },
     { img: instructor10, name: "Ndofaya" },
@@ -75,89 +73,69 @@ export default function TeamPage() {
             Meet Our <span className="text-primary">Branch Managers</span>
           </h2>
 
-          {/* Images Collage */}
-          <div className="mb-8 grid grid-cols-4 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {branchManagers.map((instructor, index) => (
+          <div className="mb-8 grid grid-cols-1 gap-1 overflow-hidden rounded-lg shadow-lg md:grid-cols-2 lg:grid-cols-4">
+            {branchManagers.map((branchManager, index) => (
               <div
                 key={index}
                 className="group relative aspect-square overflow-hidden"
               >
                 <Image
-                  src={instructor.img}
-                  alt={instructor.name}
+                  src={branchManager.img}
+                  alt={branchManager.name}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <p className="px-2 text-center text-sm font-medium text-white">
-                    {instructor.name}
-                  </p>
+                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
+                  <div>
+                    <p className="text-center text-sm font-semibold text-white">
+                      {branchManager.name}
+                    </p>
+                    <p className="text-center text-sm font-normal text-white">
+                      {branchManager.branch}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Names List */}
-          <div className="rounded-lg bg-gray-50 p-6 shadow">
-            <h3 className="mb-4 text-center text-xl font-semibold">
-              Our Branch Managers
-            </h3>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-              {branchManagers.map((instructor, index) => (
-                <div key={index} className="p-2 text-center">
-                  <p className="font-medium">{instructor.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
-        {/* Instructors Section */}
+
         <section className="mb-16">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
             Meet Our Expert <span className="text-primary">Educators</span>
           </h2>
 
-          {/* Images Collage */}
-          <div className="mb-8 grid grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {educators.map((instructor, index) => (
+          <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
+            {educators.map((educator, index) => (
               <div
                 key={index}
                 className="group relative aspect-square overflow-hidden"
               >
                 <Image
-                  src={instructor.img}
-                  alt={instructor.name}
+                  src={educator.img}
+                  alt={educator.name}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <p className="px-2 text-center text-sm font-medium text-white">
-                    {instructor.name}
-                  </p>
+                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
+                  <div>
+                    <p className="text-center text-sm font-semibold text-white">
+                      {educator.name}
+                    </p>
+                    <p className="text-center text-sm font-normal text-white">
+                      {educator.branch}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Names List */}
-          <div className="rounded-lg bg-gray-50 p-6 shadow">
-            <h3 className="mb-4 text-center text-xl font-semibold">
-              Our Educators
-            </h3>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {educators.map((instructor, index) => (
-                <div key={index} className="p-2 text-center">
-                  <p className="font-medium">{instructor.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
+
         <section className="mb-16">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
             Meet Our Expert <span className="text-primary">Instructors</span>
           </h2>
 
-          {/* Images Collage */}
-          <div className="mb-8 grid grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
+          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
             {instructors.map((instructor, index) => (
               <div
                 key={index}
@@ -168,117 +146,69 @@ export default function TeamPage() {
                   alt={instructor.name}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <p className="px-2 text-center text-sm font-medium text-white">
+                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
+                  <p className="px-2 py-2 text-center text-sm font-medium text-white">
                     {instructor.name}
                   </p>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Names List */}
-          <div className="rounded-lg bg-gray-50 p-6 shadow">
-            <h3 className="mb-4 text-center text-xl font-semibold">
-              Our Instructors
-            </h3>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
-              {instructors.map((instructor, index) => (
-                <div key={index} className="p-2 text-center">
-                  <p className="font-medium">{instructor.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
 
-        {/* Sales Team Section */}
         <section className="mb-16">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
             Meet Our <span className="text-primary">Sales Team</span>
           </h2>
 
-          {/* Images Collage */}
-          <div className="mb-8 grid grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {salesTeam.map((member, index) => (
+          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
+            {salesTeam.map((sales, index) => (
               <div
                 key={index}
                 className="group relative aspect-square overflow-hidden"
               >
                 <Image
-                  src={member.img}
-                  alt={member.name}
+                  src={sales.img}
+                  alt={sales.name}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <p className="px-2 text-center text-sm font-medium text-white">
-                    {member.name}
+                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
+                  <p className="px-2 py-2 text-center text-sm font-medium text-white">
+                    {sales.name}
                   </p>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Names List with Phone Numbers */}
-          <div className="rounded-lg bg-gray-50 p-6 shadow">
-            <h3 className="mb-4 text-center text-xl font-semibold">
-              Our Sales Team
-            </h3>
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-              {salesTeam.map((member, index) => (
-                <div key={index} className="p-2 text-center">
-                  <p className="font-medium">{member.name}</p>
-                  {member.phone && (
-                    <p className="text-sm text-primary">{member.phone}</p>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
+
         <section className="mb-16">
           <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
             Meet Our <span className="text-primary">Marketing Team</span>
           </h2>
 
-          {/* Images Collage */}
-          <div className="mb-8 grid grid-cols-2 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {marketingTeam.map((instructor, index) => (
+          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-1 overflow-hidden rounded-lg shadow-lg">
+            {marketingTeam.map((marketing, index) => (
               <div
                 key={index}
                 className="group relative aspect-square overflow-hidden"
               >
                 <Image
-                  src={instructor.img}
-                  alt={instructor.name}
+                  src={marketing.img}
+                  alt={marketing.name}
                   className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                  <p className="px-2 text-center text-sm font-medium text-white">
-                    {instructor.name}
+                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
+                  <p className="px-2 py-2 text-center text-sm font-medium text-white">
+                    {marketing.name}
                   </p>
                 </div>
               </div>
             ))}
           </div>
-
-          {/* Names List */}
-          <div className="rounded-lg bg-gray-50 p-6 shadow">
-            <h3 className="mb-4 text-center text-xl font-semibold">
-              Our Marketing Team
-            </h3>
-            <div className="grid grid-cols-2 gap-2">
-              {marketingTeam.map((instructor, index) => (
-                <div key={index} className="p-2 text-center">
-                  <p className="font-medium">{instructor.name}</p>
-                </div>
-              ))}
-            </div>
-          </div>
         </section>
       </div>
 
-      {/* Culture Section - Unchanged */}
       <div className="bg-white py-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mx-auto mb-12 max-w-3xl text-center">
