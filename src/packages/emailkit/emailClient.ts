@@ -4,15 +4,12 @@ import nodemailer, {
   type SendMailOptions as BaseSendMailOptions,
 } from "nodemailer";
 import { renderEmail, type MziyonkeClientEmailProps } from "./EmailTemplate";
+import { config } from "~/config";
 
 export function createEmailClient(env: MailOptions): EmailClient {
-  const auth =
-    env.user && env.password
-      ? {
-          user: env.user,
-          pass: env.password,
-        }
-      : undefined;
+  const { host, port, user, password } = config.mail;
+
+  const auth = user && password ? { user, pass: password } : undefined;
 
   // const transporter = nodemailer.createTransport({
   //   host: env.host,
@@ -25,8 +22,8 @@ export function createEmailClient(env: MailOptions): EmailClient {
   // });
 
   const transporter = nodemailer.createTransport({
-    host: env.host,
-    port: env.port,
+    host,
+    port,
     secure: true,
     auth,
   });
