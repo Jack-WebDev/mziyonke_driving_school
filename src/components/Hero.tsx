@@ -119,7 +119,7 @@ export default function Hero() {
                     </span>
                   </motion.button>
                 </DialogTrigger>
-                <DialogContent className="w-full max-w-3xl rounded-xl bg-white p-6">
+                <DialogContent className="w-full max-w-3xl rounded-xl bg-white p-6 overflow-y-auto h-full">
                   <DialogHeader>
                     <DialogTitle className="text-2xl font-bold text-gray-800">
                       Find Our Offices

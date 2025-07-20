@@ -100,7 +100,7 @@ export default function Footer() {
             <Link
               href="https://next-portfolio-tau-green.vercel.app/"
               target="_blank"
-              className="ml-2 text-gray-100"
+              className=" text-gray-100"
             >
               Jack WebDev
             </Link>
@@ -115,9 +115,9 @@ export default function Footer() {
             <Image
               src={"/hlehub.jpeg"}
               alt="hlehub Logo"
-              width={80}
+              width={100}
               height={50}
-              className="md:hidden relative -right-36"
+              className="mx-auto mt-2 md:hidden"
             />
           </div>
         </div>
