@@ -215,7 +215,7 @@ export default function Gallery() {
               Keys & Dreams
             </h2>
             <p className="mx-auto max-w-3xl text-lg leading-relaxed text-gray-700">
-              Celebrating the milestones we achieve together — every key handed
+              Celebrating the milestones we achieve together. Every key handed
               over represents a dream fulfilled and a life transformed.
             </p>
           </motion.div>
