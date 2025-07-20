@@ -32,7 +32,6 @@ const formSchema = z.object({
 });
 
 export default function ContactUs() {
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -44,6 +43,10 @@ export default function ContactUs() {
     },
   });
 
+  const {
+    formState: { isSubmitting },
+  } = form;
+
   const submitFormMutation = clientApi.notification.create.useMutation({
     onSuccess: async () => {
       await Swal.fire({
@@ -52,7 +55,6 @@ export default function ContactUs() {
         icon: "success",
         timer: 20000,
       } as unknown as string);
-      setIsSubmitting(false);
     },
     onError: async (error) => {
       await Swal.fire({
@@ -61,13 +63,10 @@ export default function ContactUs() {
         icon: "error",
         timer: 20000,
       } as unknown as string);
-      setIsSubmitting(false);
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    setIsSubmitting(true);
-
     submitFormMutation.mutate({
       firstName: values.firstName,
       lastName: values.lastName,
@@ -77,7 +76,6 @@ export default function ContactUs() {
     });
 
     form.reset();
-    setIsSubmitting(false);
   }
 
   const containerVariants = {

@@ -1,9 +1,10 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 export const config = {
   mail: {
-    fromEmail: process.env.MAIL_FROM_EMAIL!,
     host: process.env.MAIL_HOST!,
-    port: Number(process.env.MAIL_PORT!), 
-    secure: process.env.MAIL_SECURE === "true",
+    port: Number(process.env.MAIL_PORT!),
     user: process.env.MAIL_USER!,
     password: process.env.MAIL_PASSWORD!,
   },

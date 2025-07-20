@@ -6,6 +6,7 @@ import { type CreateNotificationSchemaType } from "~/schema/notification";
 export const createNotification = async (
   input: CreateNotificationSchemaType,
 ) => {
+
   const mailer = createEmailClient(config.mail);
 
   try {

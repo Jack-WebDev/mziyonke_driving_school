@@ -13,14 +13,22 @@ export function createEmailClient(env: MailOptions): EmailClient {
           pass: env.password,
         }
       : undefined;
+
+  // const transporter = nodemailer.createTransport({
+  //   host: env.host,
+  //   port: env.port,
+  //   secure: env.secure,
+  //   auth,
+  //   tls: {
+  //     rejectUnauthorized: false,
+  //   },
+  // });
+
   const transporter = nodemailer.createTransport({
     host: env.host,
     port: env.port,
-    secure: env.secure,
+    secure: true,
     auth,
-    tls: {
-      rejectUnauthorized: false,
-    },
   });
 
   const baseSendMail = (mailOptions: Parameters<Transporter["sendMail"]>[0]) =>
@@ -37,7 +45,7 @@ export function createEmailClient(env: MailOptions): EmailClient {
   return {
     sendMail: async (options: SendMailOptions) => {
       await baseSendMail({
-        from: env.fromEmail,
+        from: `"Mziyonke Website" <${env.fromEmail}>`,
         ...options,
         html: await renderEmail(options.data),
       });

@@ -36,10 +36,6 @@ function MziyonkeClientEmail({
       <Body style={main}>
         <Preview>Client Email to Mziyonke</Preview>
         <Container>
-          <Section style={logo}>
-            <Img src={`public/mziyonke_logo.avif`} />
-          </Section>
-
           <Section style={content}>
             <Row style={{ ...boxInfos, paddingBottom: "0" }}>
               <Column>
