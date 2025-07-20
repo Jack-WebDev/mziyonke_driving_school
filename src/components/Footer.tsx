@@ -1,6 +1,7 @@
 import { Mail, MapPin, Phone } from "lucide-react";
 import { FaInstagram, FaTiktok, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   const navLinks = [
@@ -92,7 +93,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
+        <div className="relative mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
           © {new Date().getFullYear()} Mziyonke Driving School | Created and
           Maintained by
           <div>
@@ -104,6 +105,20 @@ export default function Footer() {
               Jack WebDev
             </Link>
             <span className="text-white"> | HLE HUB</span>
+            <Image
+              src={"/hlehub.jpeg"}
+              alt="hlehub Logo"
+              width={100}
+              height={50}
+              className="hidden md:absolute md:-top-4 md:right-0 md:inline-flex"
+            />
+            <Image
+              src={"/hlehub.jpeg"}
+              alt="hlehub Logo"
+              width={80}
+              height={50}
+              className="md:hidden relative -right-36"
+            />
           </div>
         </div>
       </div>
