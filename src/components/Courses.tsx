@@ -59,18 +59,18 @@ export default function Courses() {
         <CourseCard
           imgSrc={code8Car}
           title="Code 8"
-          description="Perfect for beginners looking to get their light motor vehicle license. Our comprehensive course covers everything from basic controls to advanced defensive driving techniques."
+          description="This license allows you to drive light vehicles like cars and small bakkies (under 3,500kg). Perfect for everyday use, Uber/Bolt drivers, and anyone needing independence on the road."
         />
         <CourseCard
           imgSrc={code10Car}
           title="Code 10"
-          description="Designed for those seeking to drive heavy motor vehicles. Master the skills needed to handle larger vehicles with confidence and precision."
+          description="Drive larger vehicles like minibuses, vans, and medium trucks (above 3,500 kg but with trailers under 750 kg). Ideal for public transport, delivery jobs, or starting a shuttle business."
           imageClassName="-rotate-90 relative bottom-[45px]"
         />
         <CourseCard
           imgSrc={code14Car}
           title="Code 14"
-          description="Our most advanced course for extra-heavy vehicles. Learn to navigate complex situations and master the techniques required for large commercial transport."
+          description="With a Code 14 license, you can drive heavy trucks and vehicles with trailers over 750 kg. Perfect for logistics, long-haul transport, freight, and courier services."
         />
       </motion.div>
 
