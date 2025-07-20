@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import CourseCard from "~/modules/courses/components/CourseCard";
 import code8Car from "~/assets/code8-2.jpeg";
-import code10Car from "~/assets/code10-car3.jpeg";
+import code10Car from "~/assets/code10-2.jpg";
 import code14Car from "~/assets/code14.jpg";
 import { Button } from "./ui/button";
 import { useRouter } from "next/navigation";
@@ -54,7 +54,7 @@ export default function Courses() {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+        className="grid grid-cols-1 gap-8 lg:grid-cols-3"
       >
         <CourseCard
           imgSrc={code8Car}
@@ -65,6 +65,7 @@ export default function Courses() {
           imgSrc={code10Car}
           title="Code 10"
           description="Designed for those seeking to drive heavy motor vehicles. Master the skills needed to handle larger vehicles with confidence and precision."
+          imageClassName="-rotate-90 relative bottom-[45px]"
         />
         <CourseCard
           imgSrc={code14Car}

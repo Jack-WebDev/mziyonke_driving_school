@@ -19,17 +19,11 @@ export default function NavBar() {
   ];
 
   const handleClick = () => {
-    console.log("clicked");
     router.push("/contact");
   };
 
   return (
-    <motion.div
-      className="flex items-center justify-between px-4 py-4 lg:justify-around"
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+    <div className="flex items-center justify-between px-4 py-4 lg:justify-around">
       <Link href={"/"}>
         <Image
           src="/mziyonke_logo.avif"
@@ -101,6 +95,6 @@ export default function NavBar() {
           Contact Us
         </Button>
       </div>
-    </motion.div>
+    </div>
   );
 }

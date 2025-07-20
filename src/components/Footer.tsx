@@ -1,9 +1,5 @@
-import {
-  Mail,
-  MapPin,
-  Phone,
-} from "lucide-react";
-import {FaInstagram, FaTiktok, FaFacebook} from 'react-icons/fa'
+import { Mail, MapPin, Phone } from "lucide-react";
+import { FaInstagram, FaTiktok, FaFacebook, FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Footer() {
@@ -13,6 +9,24 @@ export default function Footer() {
     { name: "Courses", href: "/courses" },
     { name: "Our Team", href: "/staff" },
     { name: "Gallery", href: "/gallery" },
+  ];
+
+  const socialMediaLinks = [
+    {
+      icon: FaFacebook,
+      name: "Facebook",
+      href: "https://www.facebook.com/share/16MWpgciXb/?mibextid=wwXIfr",
+    },
+    {
+      icon: FaTiktok,
+      name: "Instagram",
+      href: " https://www.tiktok.com/@mziyonke.driving?_t=ZM-8yA0EafxVFm&_r=1",
+    },
+    {
+      icon: FaInstagram,
+      name: "TikTok",
+      href: "https://www.instagram.com/mziyonke_drivingschool?igsh=MWZleHNuamZzN3Vr",
+    },
   ];
 
   return (
@@ -25,14 +39,16 @@ export default function Footer() {
               The best service you deserve.
             </p>
             <div className="flex space-x-4">
-              {[FaFacebook, FaTiktok, FaInstagram].map((Icon, index) => (
-                <a
-                  key={index}
-                  href="#"
+              {socialMediaLinks.map((socialMediaLink) => (
+                <Link
+                  key={socialMediaLink.name}
+                  href={socialMediaLink.href}
+                  target="_blank"
                   className="text-gray-300 transition-colors hover:text-white"
                 >
-                  <Icon className="h-6 w-6" />
-                </a>
+                  <span className="sr-only">{socialMediaLink.name}</span>
+                  <socialMediaLink.icon className="h-6 w-6" />
+                </Link>
               ))}
             </div>
           </div>
@@ -57,12 +73,16 @@ export default function Footer() {
             <h3 className="mb-4 text-lg font-semibold">Contact Info</h3>
             <div className="space-y-3 text-gray-400">
               <div className="flex items-center space-x-2">
-                <MapPin className="h-5 w-5 text-green-500" />
-                <span>8147 Masianoke Street</span>
+                <MapPin className="h-5 w-5 text-orange-500" />
+                <span>6260 Sam Sekoati Avenue</span>
               </div>
               <div className="flex items-center space-x-2">
-                <Phone className="h-5 w-5 text-primary" />
-                <span>+27 76 215 2341</span>
+                <Phone className="h-5 w-5 text-blue-500" />
+                <span>010 335 0976</span>
+              </div>
+              <div className="flex items-center space-x-2">
+                <FaWhatsapp className="h-5 w-5 text-green-500" />
+                <span>076 215 2341</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-5 w-5 text-red-500" />
@@ -73,17 +93,17 @@ export default function Footer() {
         </div>
 
         <div className="mt-8 border-t border-gray-700 pt-4 text-center text-sm text-gray-500">
-          © {new Date().getFullYear()} Mziyonke Driving School | Created and Maintained by
+          © {new Date().getFullYear()} Mziyonke Driving School | Created and
+          Maintained by
           <div>
-
-          <Link
-            href="https://next-portfolio-tau-green.vercel.app/"
-            target="_blank"
-            className="ml-2 text-gray-100"
-          >
-            Jack WebDev
-          </Link>
-          <span className="text-white"> | HLE HUB</span>
+            <Link
+              href="https://next-portfolio-tau-green.vercel.app/"
+              target="_blank"
+              className="ml-2 text-gray-100"
+            >
+              Jack WebDev
+            </Link>
+            <span className="text-white"> | HLE HUB</span>
           </div>
         </div>
       </div>

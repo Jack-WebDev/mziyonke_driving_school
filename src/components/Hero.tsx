@@ -17,6 +17,7 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function Hero() {
   const router = useRouter();
@@ -24,22 +25,36 @@ export default function Hero() {
     {
       city: "Soweto",
       address: "Diepkloof Shopping Centre",
+      lat: -26.259639,
+      lng: 27.946361,
     },
     {
       city: "Vosloorus",
-      address: "8147 Masianoke Street",
-    },
-    {
-      city: "Vosloorus",
-      address: "6269 Sam Sekoati Avenue",
+      address: "6260 Sam Sekoati Avenue",
+      lat: -26.347882902091474,
+      lng: 28.219005656482945
     },
     {
       city: "Dawnpark",
       address: "80 Galahad Street, Dawnpark",
+      lat: -26.318389,
+      lng: 28.244556,
+    },
+    {
+      city: "Soweto",
+      address: "3 Wattle Street, Protea Glen",
+      lat: -26.278056,
+      lng: 27.812306,
+    },
+    {
+      city: "Vosloorus",
+      address: "Chris Hani Crossing Mall",
+      lat: -26.344139,
+      lng: 28.180556,
     },
   ];
 
-  const phoneNumber = "+27 10 335 0976";
+  const phoneNumber = "010 335 0976";
 
   const handleClick = () => {
     router.push("/courses");
@@ -117,27 +132,39 @@ export default function Hero() {
 
                   <div className="space-y-8">
                     <div className="mt-6 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-                      {officeLocations.map((office, index) => (
-                        <div
-                          key={`${office.city}-${index}`}
-                          className="rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
-                        >
-                          <div className="mb-3 flex items-center">
-                            <div className="mr-3 rounded-full bg-blue-100 p-2">
-                              <Building2 className="h-5 w-5 text-blue-600" />
+                      {officeLocations.map((office, index) => {
+                        const mapsUrl =
+                          office.lat && office.lng
+                            ? `https://www.google.com/maps/search/?api=1&query=${office.lat},${office.lng}`
+                            : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${office.address}, ${office.city}`)}`;
+
+                        return (
+                          <Link
+                            key={`${office.city}-${index}`}
+                            href={mapsUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="block rounded-lg border border-gray-100 bg-white p-4 shadow-sm transition-all hover:shadow-md"
+                          >
+                            <div className="mb-3 flex items-center">
+                              <div className="mr-3 rounded-full bg-blue-100 p-2">
+                                <Building2 className="h-5 w-5 text-blue-600" />
+                              </div>
+                              <h3 className="text-lg font-semibold text-gray-800">
+                                {office.city}
+                              </h3>
                             </div>
-                            <h3 className="text-lg font-semibold text-gray-800">
-                              {office.city}
-                            </h3>
-                          </div>
-                          <div className="space-y-3 pl-2">
-                            <div className="flex items-center text-gray-700">
-                              <MapPin className="mr-2 h-4 w-4 flex-shrink-0 text-blue-600" />
-                              <span className="text-sm">{office.address}</span>
+                            <div className="space-y-3 pl-2">
+                              <div className="flex items-center text-gray-700">
+                                <MapPin className="mr-2 h-4 w-4 flex-shrink-0 text-blue-600" />
+                                <span className="text-sm">
+                                  {office.address}
+                                </span>
+                              </div>
                             </div>
-                          </div>
-                        </div>
-                      ))}
+                          </Link>
+                        );
+                      })}
                     </div>
 
                     {/* Shared contact information section */}

@@ -43,7 +43,7 @@ export default function Testimonials() {
               imgSrc={img2}
               description="I was nervous about learning to drive, but the instructors at Mziyonke were fantastic. They explained everything clearly and gave me the confidence I needed. Couldn't have asked for a better experience!"
               userName="Sizani Makhuba"
-              title="Code 8"
+              title="Code 10"
             />
           </div>
 
@@ -63,7 +63,7 @@ export default function Testimonials() {
               imgSrc={img4}
               description="Learning to drive with Mziyonke was a smooth and supportive experience from start to finish. The instructors were very patient and professional. They made sure I understood everything clearly and stayed calm even when I made mistakes. I passed my test with confidence, and I owe it all to their amazing guidance!"
               userName="Thabo Nkabinde"
-              title="Code 8"
+              title="Code 14"
             />
           </div>
 
@@ -73,7 +73,7 @@ export default function Testimonials() {
               imgSrc={img5}
               description="Big thanks to the Mziyonke team for helping me get my license! They were professional, always on time, and knew exactly how to build my skills. Every lesson was structured and purposeful. I couldn’t have asked for better training."
               userName="Anele Dlamini"
-              title="Code 8"
+              title="Code 14"
             />
           </div>
 

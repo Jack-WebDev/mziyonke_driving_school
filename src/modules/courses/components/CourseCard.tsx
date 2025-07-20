@@ -7,6 +7,7 @@ type CourseProps = {
   imgSrc: StaticImageData;
   title: string;
   description: string;
+  imageClassName?: string;
 };
 
 const cardVariants = {
@@ -36,6 +37,7 @@ export default function CourseCard({
   imgSrc,
   title,
   description,
+  imageClassName
 }: CourseProps) {
   return (
     <motion.div
@@ -47,8 +49,8 @@ export default function CourseCard({
         <Image
           src={imgSrc}
           alt={title}
-          className="h-[110%] w-full transform object-cover transition-transform duration-300"
-          width={400}
+          className={`h-[110%] w-full transform object-cover transition-transform duration-300 ${imageClassName}`}
+          width={300}
           height={400}
         />
       </div>

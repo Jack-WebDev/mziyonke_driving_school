@@ -1,17 +1,17 @@
 "use client";
 import { motion } from "framer-motion";
-import { Award, Check, MapPin, Users } from "lucide-react";
+import { Award, Check, MapPin, Star, Target, Users } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import CountUp from "react-countup";
 import FAQ from "~/components/FAQ";
 import Footer from "~/components/Footer";
-import Instructors from "~/components/Instructors";
 import NavBar from "~/components/NavBar";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent } from "~/components/ui/card";
 import img1 from "~/assets/gallery-image-9.jpg";
 import img2 from "~/assets/gallery-image-10.jpg";
+import { useEffect, useState } from "react";
 
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
@@ -34,6 +34,29 @@ type AchievementProps = {
 };
 
 export default function About() {
+  const [isVisible, setIsVisible] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setIsVisible((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    document.querySelectorAll('[id^="section-"]').forEach((el) => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
   const router = useRouter();
 
   const achievements: AchievementProps[] = [
@@ -41,7 +64,7 @@ export default function About() {
       icon: <Users className="h-12 w-12 text-primary" />,
       title: "Growing Community",
       description: "Thousands of successful learners since 2013",
-      stat: 5000,
+      stat: 10000,
       animate: true,
     },
     {
@@ -55,7 +78,7 @@ export default function About() {
       icon: <MapPin className="h-12 w-12 text-red-500" />,
       title: "Strategic Locations",
       description: "Accessible training centers",
-      stat: 4,
+      stat: 5,
       animate: false,
     },
   ];
@@ -64,59 +87,123 @@ export default function About() {
     <>
       <NavBar />
       <div className="mx-auto max-w-7xl space-y-24 px-4 py-16">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={fadeIn}
-          className="mx-auto w-1/2 space-y-8 rounded-3xl bg-gradient-to-r from-primary to-indigo-800 p-10 text-white shadow-2xl"
+        <section
+          id="section-about"
+          className={`transform transition-all duration-1000 ${
+            isVisible["section-about"]
+              ? "translate-y-0 opacity-100"
+              : "translate-y-10 opacity-0"
+          }`}
         >
-          <h2 className="text-4xl font-extrabold tracking-tight drop-shadow-lg md:text-5xl">
-            About Us
-          </h2>
-          <div className="prose prose-lg text-md max-w-none space-y-6">
-            <p>
-              Since our founding, Mziyonke Driving School has had the
-              opportunity to help countless learners acquire foundational
-              skills, develop new techniques and confidently move forward in
-              their learning journey. Known as the best Driving School in the
-              Vosloorus area, we provide a wide range of courses to support
-              Learners from all backgrounds and levels.
-            </p>
-            <p>
-              Mziyonke Driving School, founded by Sifiso Kheswa in 2013, carries
-              a name deeply rooted in familial history and a tradition of
-              support and care. The driving school derives its name from
-              Sifiso&apos;s grandfather, who was a diligent provider in his
-              community, cultivating crops and generously offering them to
-              numerous households.
-            </p>
-            <p>
-              The name &apos;Mziyonke&apos; reflects the legacy of a fatherly
-              figure who not only provides but also supports and takes care of
-              all houses within his reach. This ethos of nurturing and
-              assistance is carried forward in the driving school&apos;s
-              mission, emphasizing a commitment to guiding and supporting
-              individuals on their journey to becoming skilled and responsible
-              drivers.
-            </p>
-            <p>
-              Mziyonke has 4 offices, One located in Dawnpark, another in
-              Soweto, and the other two offices are located right in the heart
-              of Vosloorus encompassing 17 employees who contribute immensely to
-              the success of the company.
-            </p>
-          </div>
-          <motion.div whileTap={{ scale: 0.95 }}>
-            <Button
-              onClick={() => router.push("/courses")}
-              className="rounded-full bg-white px-8 py-3 text-lg font-semibold text-blue-600 shadow-md transition-shadow duration-300 hover:text-white hover:shadow-xl"
-            >
-              View Courses
-            </Button>
-          </motion.div>
-        </motion.div>
+          <div className="relative overflow-hidden rounded-3xl bg-primary p-12 shadow-2xl">
+            <div className="absolute right-0 top-0 h-64 w-64 -translate-y-32 translate-x-32 rounded-full bg-white/10"></div>
+            <div className="absolute bottom-0 left-0 h-48 w-48 -translate-x-24 translate-y-24 rounded-full bg-white/5"></div>
 
-        {/* Achievements Section */}
+            <div className="relative z-10 mx-auto max-w-4xl space-y-8 text-center">
+              <div className="mb-4 inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white/90">
+                <Star className="mr-2 h-4 w-4" />
+                Trusted Since 2013
+              </div>
+
+              <h1 className="text-5xl font-bold leading-tight text-white md:text-6xl">
+                About Mziyonke
+                <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                  Driving School
+                </span>
+              </h1>
+
+              <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-blue-100">
+                <p>
+                  Mziyonke Driving School is more than just a driving school,
+                  we are a trusted gateway to freedom, opportunity, and
+                  empowerment through driving. Proudly rooted in the community,
+                  we&apos;ve built our name by offering top-quality driver
+                  training for Code 8, 10, and 14 licenses using a modern,
+                  roadworthy fleet and passionate, professional instructors.
+                </p>
+                <p>
+                  Whether you&apos;re a school leaver, a job seeker, or a
+                  working adult looking to expand your options, we offer
+                  affordable, accessible driving lessons that unlock new
+                  chapters in life. At Mziyonke, we don&apos;t just teach you to
+                  drive, we prepare you for the road ahead.
+                </p>
+              </div>
+
+              <Button
+                className="group relative inline-flex transform items-center rounded-full bg-white px-8 py-4 text-lg font-semibold text-blue-600 shadow-lg transition-all duration-300 hover:bg-white/60 hover:shadow-xl"
+                onClick={() => router.push("/courses")}
+              >
+                <span>View Courses</span>
+                <div className="ml-2 transform transition-transform group-hover:translate-x-1">
+                  →
+                </div>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="section-campaign"
+          className={`transform transition-all delay-200 duration-1000 ${
+            isVisible["section-campaign"]
+              ? "translate-y-0 opacity-100"
+              : "translate-y-10 opacity-0"
+          }`}
+        >
+          <div className="relative overflow-hidden rounded-3xl bg-gradient-to-r from-emerald-600 via-teal-700 to-cyan-800 p-12 shadow-2xl">
+            <div className="absolute left-0 top-0 h-72 w-72 -translate-x-36 -translate-y-36 rounded-full bg-white/10"></div>
+            <div className="absolute bottom-0 right-0 h-56 w-56 translate-x-28 translate-y-28 rounded-full bg-white/5"></div>
+
+            <div className="relative z-10 mx-auto max-w-4xl space-y-8 text-center">
+              <div className="mb-4 inline-flex items-center rounded-full bg-white/20 px-4 py-2 text-sm font-medium text-white/90">
+                <Target className="mr-2 h-4 w-4" />
+                Empowerment Programme
+              </div>
+
+              <h2 className="text-4xl font-bold leading-tight text-white md:text-5xl">
+                Keys and Dreams
+                <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+                  Campaign
+                </span>
+              </h2>
+
+              <div className="mx-auto max-w-3xl space-y-6 text-lg leading-relaxed text-emerald-100">
+                <p>
+                  The Keys and Dreams Campaign is our flagship empowerment
+                  programme for Grade 12 learners. Not every matriculant has
+                  access to varsity or job opportunities immediately after
+                  school. Many parents also don&apos;t have the money to pay
+                  upfront for driving lessons.
+                </p>
+                <div>
+                  <p className="mb-4">That&apos;s why we launched this campaign:</p>
+                  <ul className="ml-4 list-disc text-start">
+                    <li>
+                      To remove the financial barrier by covering all the costs
+                      upfront.
+                    </li>
+                    <li>
+                      All a parent needs to do is commit to paying a R200
+                      monthly fee until the license is fully paid off.
+                    </li>
+                    <li>
+                      We make sure your child doesn&apos;t just leave school
+                      with a certificate, but also with a driver&apos;s license. A real opportunity to enter the job market.
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  While the campaign is focused on matriculants, we also care
+                  deeply about our communities. That&apos;s why we run regular
+                  specials for non-matriculants and adults. Follow us on social
+                  media so they don&apos;t miss out on the next opportunity.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -229,9 +316,7 @@ export default function About() {
           </motion.div>
         </motion.div>
       </div>
-      <Instructors />
       <FAQ />
-      {/* <CTA/> */}
       <Footer />
     </>
   );

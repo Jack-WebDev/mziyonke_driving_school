@@ -77,10 +77,15 @@ function MziyonkeClientEmail({
                 </Text>
                 <Text style={{ ...paragraph, marginTop: -5 }}>
                   <b>Date Sent: </b>
-                  {sentDate.toLocaleDateString()}{" "}
+                  {sentDate.toLocaleDateString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}{" "}
                 </Text>
 
                 <Text style={{ ...paragraph, marginTop: -5 }}>
+                  <b>Message: </b>
                   {userMessage}
                 </Text>
               </Column>

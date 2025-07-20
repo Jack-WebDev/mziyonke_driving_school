@@ -1,298 +1,344 @@
-import instructor1 from "~/assets/tata.jpg";
-import instructor2 from "~/assets/Luzuko.jpg";
-import instructor3 from "~/assets/Londi.jpg";
-import instructor4 from "~/assets/Snenhlanhla.jpg";
-import instructor5 from "~/assets/dhlamini.jpg";
-import instructor6 from "~/assets/hlanganani.jpg";
-import instructor8 from "~/assets/sphesihle-kheswa.jpg";
-import instructor9 from "~/assets/sphesihle.jpg";
-import instructor10 from "~/assets/ndofaya.jpg";
-import instructor11 from "~/assets/mhlekazi.jpg";
-import instructor12 from "~/assets/kamohelo.jpg";
-import instructor13 from "~/assets/lungelo.png";
-import instructor14 from "~/assets/mdu.jpg";
-
-import bm1 from "~/assets/samkelesilwe.jpg";
-import bm2 from "~/assets/pretty.jpg";
-import bm3 from "~/assets/precious.jpg";
-import bm4 from "~/assets/busi.jpg";
-
-import sales5 from "~/assets/Milina.jpg";
-import sales6 from "~/assets/Leria.jpg";
-import sales7 from "~/assets/jabulile.jpg";
-import sales8 from "~/assets/kabelo.jpg";
-import sales9 from "~/assets/siya.jpg";
-
-import marketing1 from "~/assets/sihle_ndlovu.jpg";
+import exec1 from "~/assets/hlengiwe.jpeg";
+import exec2 from "~/assets/sfiso-2.jpeg";
 
 import NavBar from "~/components/NavBar";
 import Footer from "~/components/Footer";
 import FAQ from "~/components/FAQ";
-import Image from "next/image";
+import Image, { type StaticImageData } from "next/image";
+import sihle from "~/assets/sihle.jpg";
+import boity from "~/assets/boity.jpeg";
+import instructors from "~/assets/instructors.jpeg";
+import salesTeam from "~/assets/sales-team.jpeg";
+import sowetoBara from "~/assets/soweto-bara.jpeg";
+import goldspot from "~/assets/goldspot.jpeg";
+import protea from "~/assets/protea-glen.jpeg";
+import dawnpark from "~/assets/dawnpark.jpeg";
+import chrisHani from "~/assets/chris-hani.jpeg";
+import { Award, Heart, Lightbulb, Users } from "lucide-react";
+import Link from "next/link";
+
+type TeamSectionProps = {
+  title: string;
+  image: StaticImageData;
+  altText: string;
+  highlight: string;
+  disableAnimation?: boolean;
+  lat?: number;
+  lng?: number;
+};
 
 export default function TeamPage() {
-  const educators = [
-    { img: instructor12, name: "Kamogelo", branch: "Vosloorus Branch" },
-    { img: instructor3, name: "Londi", branch: "DawnPark Branch" },
-    { img: instructor8, name: "Sphesihle Kheswa", branch: "Soweto Branch" },
+  const execs = [
+    {
+      name: "Sifiso Kheswa",
+      img: exec2,
+      role: "CEO",
+    },
+    {
+      name: "Hlengiwe Kheswa",
+      img: exec1,
+      role: "Managing Director",
+    },
   ];
-  const branchManagers = [
-    { img: bm2, name: "Pretty", phone: "", branch: "Soweto Branch" },
-    { img: bm3, name: "Precious", phone: "", branch: "Vosloorus Branch" },
-    { img: bm1, name: "Samkelesilwe", phone: "", branch: "DawnPark Branch" },
-    { img: bm4, name: "Busi", phone: "", branch: "Vosloorus Branch" },
-  ];
-  const marketingTeam = [{ img: marketing1, name: "Sihle" }];
-  const instructors = [
-    { img: instructor1, name: "Tata" },
-    { img: instructor2, name: "Thulani" },
-    { img: instructor4, name: "Snenhlanhla" },
-    { img: instructor5, name: "Dhlamini" },
-    { img: instructor6, name: "Buthelezi" },
-    { img: instructor13, name: "Lungelo" },
-    { img: instructor9, name: "Sphesihle" },
-    { img: instructor10, name: "Ndofaya" },
-    { img: instructor11, name: "Mhlekazi" },
-    { img: instructor14, name: "Mduduzi" },
+  const marketingTeam = [
+    {
+      name: "Sihle",
+      img: sihle,
+      role: "Social Media Manager",
+    },
+    {
+      name: "Boitumelo",
+      img: boity,
+      role: "Marketing Manager",
+    },
   ];
 
-  const salesTeam = [
-    { img: sales5, name: "Milina", phone: "" },
-    { img: sales6, name: "Leria", phone: "" },
-    { img: sales7, name: "Jabulile", phone: "" },
-    { img: sales8, name: "Kabelo", phone: "" },
-    { img: sales9, name: "Siya", phone: "" },
-  ];
+  const teamImages = {
+    instructors: instructors,
+    salesTeam: salesTeam,
+    sowetoBara: sowetoBara,
+    protea: protea,
+    goldspot: goldspot,
+    chrisHani: chrisHani,
+    dawnpark: dawnpark,
+  };
+
+  const TeamSection = ({
+    title,
+    image,
+    altText,
+    highlight,
+    disableAnimation = false,
+    lat,
+    lng,
+  }: TeamSectionProps) => {
+    const mapsUrl =
+      lat !== undefined && lng !== undefined
+        ? `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`
+        : null;
+
+    return (
+      <section className="group mb-20">
+        <div className="mb-12 text-center">
+          <h2 className="mb-4 text-4xl font-bold md:text-5xl">
+            {title.split(highlight)[0]}
+            {mapsUrl ? (
+              <Link
+                href={mapsUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative inline-block text-primary"
+              >
+                {highlight}
+                {!disableAnimation && (
+                  <div className="absolute -bottom-2 left-0 h-1 w-full scale-x-0 transform rounded-full bg-primary transition-transform duration-500 group-hover:scale-x-100" />
+                )}
+              </Link>
+            ) : (
+              <span className="relative inline-block text-primary">
+                {highlight}
+                {!disableAnimation && (
+                  <div className="absolute -bottom-2 left-0 h-1 w-full scale-x-0 transform rounded-full bg-primary transition-transform duration-500 group-hover:scale-x-100" />
+                )}
+              </span>
+            )}
+          </h2>
+        </div>
+
+        <div className="group-hover:shadow-3xl relative mx-auto max-w-4xl overflow-hidden rounded-3xl shadow-2xl transition-all duration-500">
+          <Image
+            src={image}
+            alt={altText}
+            className="h-auto w-full transform object-cover transition-transform duration-700"
+            width={600}
+            height={600}
+          />
+          <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-black/10"></div>
+        </div>
+      </section>
+    );
+  };
 
   return (
     <>
       <NavBar />
-      <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8">
-        <section className="mb-16">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
-            Meet Our <span className="text-primary">Branch Managers</span>
-          </h2>
+      <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+        <div className="relative overflow-hidden bg-primary">
+          <div></div>
+          <div className="container relative mx-auto px-6 py-24">
+            <div className="text-center">
+              <h1 className="mb-6 text-5xl font-bold leading-tight text-white md:text-7xl">
+                Meet Our Amazing Team
+              </h1>
+              <p className="mx-auto max-w-5xl text-xl leading-relaxed text-white">
+                Behind every successful learner at Mziyonke is a team of
+                dedicated professionals who lead with heart, skill, and purpose.
+                Get to know the faces behind the wheel of our mission.
+              </p>
+            </div>
+          </div>
+        </div>
 
-          <div className="mb-8 grid grid-cols-1 gap-1 overflow-hidden rounded-lg shadow-lg md:grid-cols-2 lg:grid-cols-4">
-            {branchManagers.map((branchManager, index) => (
-              <div
-                key={index}
-                className="group relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={branchManager.img}
-                  alt={branchManager.name}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
-                  <div>
-                    <p className="text-center text-sm font-semibold text-white">
-                      {branchManager.name}
+        <div className="container mx-auto px-6 py-20">
+          <section className="mb-24">
+            <div className="mb-16 text-center">
+              <h2 className="mb-6 bg-primary bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+                Meet Our <span className="text-primary">Executives</span>
+              </h2>
+              <div className="mx-auto h-1 w-24 rounded-full bg-secondary"></div>
+            </div>
+
+            <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+              {execs.map((exec, index) => (
+                <div
+                  key={index}
+                  className="group relative aspect-square transform overflow-hidden rounded-3xl shadow-lg transition-all duration-500"
+                >
+                  <Image
+                    src={exec.img}
+                    alt={exec.name}
+                    className="h-full w-full object-cover transition-transform duration-700"
+                    width={500}
+                    height={500}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80"></div>
+                  <div className="absolute bottom-0 left-0 right-0 translate-y-2 transform p-6 text-center transition-transform duration-300 group-hover:translate-y-0">
+                    <h3 className="mb-1 text-xl font-bold text-white">
+                      {exec.name}
+                    </h3>
+                    <p className="text-lg font-semibold text-white/60">
+                      {exec.role}
                     </p>
-                    <p className="text-center text-sm font-normal text-white">
-                      {branchManager.branch}
+                  </div>
+                  <div className="absolute right-4 top-4 flex h-12 w-12 scale-0 transform items-center justify-center rounded-full bg-white/20 opacity-0 backdrop-blur-sm transition-all duration-300 group-hover:scale-100 group-hover:opacity-100">
+                    <Users className="h-6 w-6 text-white" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <TeamSection
+            title="Meet Our Instructors"
+            image={teamImages.instructors}
+            altText="instructors"
+            highlight="Instructors"
+            disableAnimation={true}
+          />
+
+          <TeamSection
+            title="Meet Our Sales Team"
+            image={teamImages.salesTeam}
+            altText="sales-team"
+            highlight="Sales Team"
+            disableAnimation={true}
+          />
+
+          <TeamSection
+            title="Meet Our Soweto Bara Branch"
+            image={teamImages.sowetoBara}
+            altText="soweto-team"
+            highlight="Soweto Bara Branch"
+            lat={-26.259639}
+            lng={27.946361}
+          />
+
+          <TeamSection
+            title="Meet Our Soweto Protea Glen Branch"
+            image={teamImages.protea}
+            altText="protea-team"
+            highlight="Soweto Protea Glen Branch"
+            lat={-26.278056}
+            lng={27.812306}
+          />
+
+          <TeamSection
+            title="Meet Our Goldspot Branch"
+            image={teamImages.goldspot}
+            altText="goldspot-team"
+            highlight="Goldspot Branch"
+            lng={28.219005656482945}
+            lat={-26.347882902091474}
+          />
+
+          <TeamSection
+            title="Meet Our Chris Hani Office"
+            image={teamImages.chrisHani}
+            altText="chrisHani-team"
+            highlight="Chris Hani Office"
+            lat={-26.344139}
+            lng={28.180556}
+          />
+
+          <TeamSection
+            title="Meet Our DawnPark Branch"
+            image={teamImages.dawnpark}
+            altText="dawnpark-team"
+            highlight="DawnPark Branch"
+            lng={28.244556}
+            lat={-26.318389}
+          />
+
+          <section className="mb-24">
+            <div className="mb-16 text-center">
+              <h2 className="mb-6 bg-primary bg-clip-text text-4xl font-bold text-transparent md:text-5xl">
+                Meet Our <span className="text-primary">Marketing Team</span>
+              </h2>
+              <div className="mx-auto h-1 w-24 rounded-full bg-secondary"></div>
+            </div>
+
+            <div className="mb-8 grid grid-cols-1 gap-8 md:grid-cols-2">
+              {marketingTeam.map((marketing, index) => (
+                <div
+                  key={index}
+                  className="group relative aspect-square transform overflow-hidden rounded-3xl shadow-lg transition-all duration-500"
+                >
+                  <Image
+                    src={marketing.img}
+                    alt={marketing.name}
+                    className="h-full w-full object-cover transition-transform duration-700"
+                    width={500}
+                    height={500}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 transition-opacity duration-300 group-hover:opacity-80"></div>
+                  <div className="absolute bottom-0 left-0 right-0 translate-y-2 transform p-6 text-center transition-transform duration-300 group-hover:translate-y-0">
+                    <h3 className="mb-1 text-xl font-bold text-white">
+                      {marketing.name}
+                    </h3>
+                    <p className="text-lg font-semibold text-white/60">
+                      {marketing.role}
                     </p>
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        </div>
 
-        <section className="mb-16">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
-            Meet Our Expert <span className="text-primary">Educators</span>
-          </h2>
+        <div className="relative overflow-hidden bg-primary py-24">
+          <div></div>
 
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {educators.map((educator, index) => (
-              <div
-                key={index}
-                className="group relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={educator.img}
-                  alt={educator.name}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
-                  <div>
-                    <p className="text-center text-sm font-semibold text-white">
-                      {educator.name}
-                    </p>
-                    <p className="text-center text-sm font-normal text-white">
-                      {educator.branch}
+          <div className="container relative mx-auto px-6">
+            <div className="mb-16 text-center">
+              <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl">
+                Our{" "}
+                <span className="bg-secondary bg-clip-text text-transparent">
+                  Culture
+                </span>
+              </h2>
+              <div className="mx-auto mb-6 h-1 w-24 rounded-full bg-secondary"></div>
+              <p className="mx-auto max-w-3xl text-xl leading-relaxed text-white">
+                We believe in fostering an environment of growth, innovation,
+                and excellence. Our team members are passionate about education
+                and committed to your success.
+              </p>
+            </div>
+
+            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-3">
+              {[
+                {
+                  icon: <Lightbulb className="h-8 w-8" />,
+                  title: "Innovation",
+                  description:
+                    "We continuously explore new teaching methods and technologies to enhance learning outcomes.",
+                  gradient: "from-yellow-400 to-orange-500",
+                },
+                {
+                  icon: <Heart className="h-8 w-8" />,
+                  title: "Community",
+                  description:
+                    "We foster a supportive community where everyone can grow, learn, and succeed together.",
+                  gradient: "from-pink-400 to-red-500",
+                },
+                {
+                  icon: <Award className="h-8 w-8" />,
+                  title: "Excellence",
+                  description:
+                    "We strive for excellence in everything we do, ensuring the highest quality education for our students.",
+                  gradient: "from-emerald-400 to-teal-500",
+                },
+              ].map((item, index) => (
+                <div
+                  key={index}
+                  className="group relative transform rounded-3xl bg-white/10 p-8 text-center backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:scale-105 hover:bg-white/20"
+                >
+                  <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-white/5 to-transparent"></div>
+                  <div className="relative z-10">
+                    <div
+                      className={`mx-auto mb-6 h-20 w-20 rounded-2xl bg-gradient-to-br ${item.gradient} flex transform items-center justify-center shadow-lg transition-all duration-500 group-hover:rotate-3 group-hover:scale-110 group-hover:shadow-xl`}
+                    >
+                      <div className="text-white">{item.icon}</div>
+                    </div>
+                    <h3 className="mb-4 text-2xl font-bold text-white transition-colors duration-300 group-hover:text-purple-200">
+                      {item.title}
+                    </h3>
+                    <p className="leading-relaxed text-indigo-200 transition-colors duration-300 group-hover:text-white/90">
+                      {item.description}
                     </p>
                   </div>
+                  <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 transition-all duration-300 group-hover:ring-white/20"></div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
-            Meet Our Expert <span className="text-primary">Instructors</span>
-          </h2>
-
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {instructors.map((instructor, index) => (
-              <div
-                key={index}
-                className="group relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={instructor.img}
-                  alt={instructor.name}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
-                  <p className="px-2 py-2 text-center text-sm font-medium text-white">
-                    {instructor.name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
-            Meet Our <span className="text-primary">Sales Team</span>
-          </h2>
-
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {salesTeam.map((sales, index) => (
-              <div
-                key={index}
-                className="group relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={sales.img}
-                  alt={sales.name}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
-                  <p className="px-2 py-2 text-center text-sm font-medium text-white">
-                    {sales.name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <section className="mb-16">
-          <h2 className="mb-10 text-center text-3xl font-bold text-gray-900 md:text-4xl">
-            Meet Our <span className="text-primary">Marketing Team</span>
-          </h2>
-
-          <div className="mb-8 grid grid-cols-1 md:grid-cols-2 gap-1 overflow-hidden rounded-lg shadow-lg">
-            {marketingTeam.map((marketing, index) => (
-              <div
-                key={index}
-                className="group relative aspect-square overflow-hidden"
-              >
-                <Image
-                  src={marketing.img}
-                  alt={marketing.name}
-                  className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-110"
-                />
-                <div className="absolute bottom-0 left-0 right-0 flex items-end justify-center bg-black bg-opacity-70 opacity-100 transition-opacity duration-300 group-hover:opacity-100 lg:opacity-0">
-                  <p className="px-2 py-2 text-center text-sm font-medium text-white">
-                    {marketing.name}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      </div>
-
-      <div className="bg-white py-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto mb-12 max-w-3xl text-center">
-            <h2 className="mb-4 text-3xl font-bold">
-              Our <span className="text-primary">Culture</span>
-            </h2>
-            <p className="text-gray-600">
-              We believe in fostering an environment of growth, innovation, and
-              excellence. Our team members are passionate about education and
-              committed to your success.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-            <div className="rounded-lg bg-gray-50 p-6 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-xl font-semibold">Innovation</h3>
-              <p className="text-gray-600">
-                We continuously explore new teaching methods and technologies to
-                enhance learning outcomes.
-              </p>
-            </div>
-
-            <div className="rounded-lg bg-gray-50 p-6 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-xl font-semibold">Community</h3>
-              <p className="text-gray-600">
-                We foster a supportive community where everyone can grow, learn,
-                and succeed together.
-              </p>
-            </div>
-
-            <div className="rounded-lg bg-gray-50 p-6 text-center">
-              <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-8 w-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
-                  />
-                </svg>
-              </div>
-              <h3 className="mb-2 text-xl font-semibold">Excellence</h3>
-              <p className="text-gray-600">
-                We strive for excellence in everything we do, ensuring the
-                highest quality education for our students.
-              </p>
+              ))}
             </div>
           </div>
         </div>

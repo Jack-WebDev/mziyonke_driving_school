@@ -1,6 +1,6 @@
 import "~/styles/globals.css";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from '@vercel/analytics/next';
+import { Analytics } from "@vercel/analytics/next";
 
 import { GeistSans } from "geist/font/sans";
 import { type Metadata } from "next";
@@ -23,7 +23,6 @@ export default function RootLayout({
           {children}
           <SpeedInsights />
           <Analytics />
-
         </TRPCReactProvider>
       </body>
     </html>

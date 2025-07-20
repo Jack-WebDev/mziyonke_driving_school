@@ -19,16 +19,20 @@ import Footer from "~/components/Footer";
 import FAQ from "~/components/FAQ";
 import { clientApi } from "~/trpc/react";
 import Swal from "sweetalert2";
+import { useState } from "react";
 
 const formSchema = z.object({
   firstName: z.string().min(2),
   lastName: z.string().min(2),
   email: z.string().email(),
-  phoneNumber: z.string().min(10),
+  phoneNumber: z.string().min(10, {
+    message: "Phone number must be at least 10 digits",
+  }),
   message: z.string().min(10),
 });
 
 export default function ContactUs() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -48,6 +52,7 @@ export default function ContactUs() {
         icon: "success",
         timer: 20000,
       } as unknown as string);
+      setIsSubmitting(false);
     },
     onError: async (error) => {
       await Swal.fire({
@@ -56,10 +61,13 @@ export default function ContactUs() {
         icon: "error",
         timer: 20000,
       } as unknown as string);
+      setIsSubmitting(false);
     },
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
+    setIsSubmitting(true);
+
     submitFormMutation.mutate({
       firstName: values.firstName,
       lastName: values.lastName,
@@ -69,6 +77,7 @@ export default function ContactUs() {
     });
 
     form.reset();
+    setIsSubmitting(false);
   }
 
   const containerVariants = {
@@ -77,7 +86,6 @@ export default function ContactUs() {
       opacity: 1,
       y: 0,
       transition: {
-        // Stagger children animations for a smooth entrance
         staggerChildren: 0.1,
         delayChildren: 0.2,
         duration: 0.5,
@@ -99,7 +107,6 @@ export default function ContactUs() {
         exit={{ opacity: 0 }}
         variants={containerVariants}
       >
-        {/* Left Section: Intro */}
         <motion.div
           className="mb-8 flex flex-col items-start justify-center px-4 md:mb-0 md:w-1/2"
           variants={itemVariants}
@@ -113,7 +120,6 @@ export default function ContactUs() {
           </p>
         </motion.div>
 
-        {/* Right Section: Form */}
         <motion.div className="px-4 md:w-1/2" variants={itemVariants}>
           <Form {...form}>
             <motion.form
@@ -123,7 +129,6 @@ export default function ContactUs() {
               animate="visible"
               variants={containerVariants}
             >
-              {/* Name Fields */}
               <motion.div
                 className="flex flex-col gap-4 sm:flex-row"
                 variants={itemVariants}
@@ -136,7 +141,7 @@ export default function ContactUs() {
                       <FormLabel>First Name</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="John"
+                          placeholder="Mxolisi"
                           {...field}
                           className="rounded-full border p-6"
                         />
@@ -153,7 +158,7 @@ export default function ContactUs() {
                       <FormLabel>Last Name</FormLabel>
                       <FormControl>
                         <Input
-                          placeholder="Doe"
+                          placeholder="Mbulazi"
                           {...field}
                           className="rounded-full border p-6"
                         />
@@ -164,7 +169,6 @@ export default function ContactUs() {
                 />
               </motion.div>
 
-              {/* Contact Fields */}
               <motion.div
                 className="flex flex-col gap-4 sm:flex-row"
                 variants={itemVariants}
@@ -178,7 +182,7 @@ export default function ContactUs() {
                       <FormControl>
                         <Input
                           type="email"
-                          placeholder="john.doe@example.com"
+                          placeholder="mxo23@example.com"
                           {...field}
                           className="rounded-full border p-6"
                         />
@@ -196,7 +200,7 @@ export default function ContactUs() {
                       <FormControl>
                         <Input
                           type="tel"
-                          placeholder="+1 (123) 456-7890"
+                          placeholder="076 770 0996"
                           {...field}
                           className="rounded-full border p-6"
                         />
@@ -207,7 +211,6 @@ export default function ContactUs() {
                 />
               </motion.div>
 
-              {/* Message Field */}
               <motion.div variants={itemVariants}>
                 <FormField
                   control={form.control}
@@ -228,13 +231,12 @@ export default function ContactUs() {
                 />
               </motion.div>
 
-              {/* Submit Button */}
               <motion.div variants={itemVariants}>
                 <Button
                   type="submit"
                   className="w-full rounded-full bg-primary py-6 text-white transition duration-200"
                 >
-                  Submit
+                  {isSubmitting ? "Submitting..." : "Submit"}
                 </Button>
               </motion.div>
             </motion.form>
